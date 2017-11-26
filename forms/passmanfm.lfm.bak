@@ -1,0 +1,146 @@
+object Form1: TForm1
+  Left = 474
+  Height = 508
+  Top = 201
+  Width = 912
+  Caption = 'Password Manager'
+  ClientHeight = 485
+  ClientWidth = 912
+  Menu = MainMenu
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.6.4.0'
+  object StringGrid: TStringGrid
+    Left = 0
+    Height = 459
+    Top = 26
+    Width = 912
+    Align = alClient
+    AutoFillColumns = True
+    ColCount = 7
+    Columns = <    
+      item
+        ButtonStyle = cbsCheckboxColumn
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Enabled'
+        Width = 60
+      end    
+      item
+        SizePriority = 0
+        Title.Caption = 'Username'
+        Width = 120
+      end    
+      item
+        SizePriority = 0
+        Title.Caption = 'Password'
+        Width = 120
+      end    
+      item
+        ButtonStyle = cbsCheckboxColumn
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Admin'
+        Width = 60
+      end    
+      item
+        ReadOnly = True
+        SizePriority = 0
+        Title.Caption = 'Last Active'
+        Width = 142
+      end    
+      item
+        Title.Caption = 'Description'
+        Width = 197
+      end    
+      item
+        ButtonStyle = cbsButton
+        Title.Caption = 'Params'
+        Width = 197
+      end>
+    DefaultColWidth = 12
+    DefaultRowHeight = 20
+    ExtendedSelect = False
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goAlwaysShowEditor, goSmoothScroll]
+    RowCount = 1
+    ScrollBars = ssVertical
+    TabOrder = 0
+    OnButtonClick = StringGridButtonClick
+    ColWidths = (
+      60
+      120
+      120
+      60
+      142
+      197
+      197
+    )
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 912
+    Caption = 'ToolBar'
+    ShowCaptions = True
+    TabOrder = 1
+    object AddBtn: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'Add'
+      OnClick = AddBtnClick
+    end
+    object DeleteBtn: TToolButton
+      Left = 31
+      Top = 2
+      Caption = 'Delete'
+      OnClick = DeleteBtnClick
+    end
+  end
+  object MainMenu: TMainMenu
+    left = 408
+    top = 424
+    object FileMenu: TMenuItem
+      Caption = '&File'
+      object NewItm: TMenuItem
+        Caption = '&New'
+        OnClick = NewItmClick
+      end
+      object OpenItm: TMenuItem
+        Caption = '&Open'
+        OnClick = OpenItmClick
+      end
+      object SaveItm: TMenuItem
+        Caption = '&Save'
+        OnClick = SaveItmClick
+      end
+      object SaveAsItm: TMenuItem
+        Caption = 'Save &As...'
+        OnClick = SaveAsItmClick
+      end
+      object MenuItem2: TMenuItem
+        Caption = '-'
+      end
+      object ExitItm: TMenuItem
+        Caption = 'E&xit'
+        OnClick = ExitItmClick
+      end
+    end
+  end
+  object OpenDialog: TOpenDialog
+    Title = 'Open password database'
+    DefaultExt = '.pwd'
+    Filter = 'Password Database|*.pwd|All Files|*.*'
+    Options = [ofFileMustExist, ofEnableSizing, ofViewDetail]
+    left = 504
+    top = 424
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save password database as'
+    DefaultExt = '.pwd'
+    Filter = 'Password Files|*.pwd|All Files|*.*'
+    left = 584
+    top = 424
+  end
+end

@@ -1,0 +1,178 @@
+object FatInspectorForm: TFatInspectorForm
+  Left = 709
+  Height = 373
+  Top = 159
+  Width = 475
+  Caption = 'FAT Inspector'
+  ClientHeight = 373
+  ClientWidth = 475
+  LCLVersion = '1.0.14.0'
+  object Splitter1: TSplitter
+    Left = 136
+    Height = 155
+    Top = 0
+    Width = 5
+  end
+  object FilePageGrid: TStringGrid
+    Left = 5
+    Height = 208
+    Top = 160
+    Width = 465
+    Align = alBottom
+    AutoFillColumns = True
+    BorderSpacing.Left = 5
+    BorderSpacing.Right = 5
+    BorderSpacing.Bottom = 5
+    ColCount = 9
+    Columns = <    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 51
+      end    
+      item
+        Title.Caption = ' '
+        Width = 58
+      end>
+    DefaultColWidth = 35
+    DefaultRowHeight = 18
+    ScrollBars = ssVertical
+    TabOrder = 1
+    ColWidths = (
+      35
+      51
+      51
+      51
+      51
+      51
+      51
+      51
+      58
+    )
+  end
+  object Splitter2: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 155
+    Width = 475
+    Align = alBottom
+    ResizeAnchor = akBottom
+  end
+  object FATPageGrid: TStringGrid
+    Left = 141
+    Height = 120
+    Top = 35
+    Width = 329
+    Align = alClient
+    AutoFillColumns = True
+    BorderSpacing.Top = 35
+    BorderSpacing.Right = 5
+    Columns = <    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Page Num'
+        Width = 70
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Page Index'
+        Width = 70
+      end    
+      item
+        ButtonStyle = cbsCheckboxColumn
+        Title.Alignment = taCenter
+        Title.Caption = 'Modified'
+        Width = 70
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Next'
+        Width = 72
+      end>
+    DefaultColWidth = 32
+    DefaultRowHeight = 18
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goSmoothScroll]
+    ScrollBars = ssVertical
+    TabOrder = 3
+    OnSelectCell = FATPageGridSelectCell
+    ColWidths = (
+      32
+      70
+      70
+      70
+      72
+    )
+  end
+  object FileListGrid: TStringGrid
+    Left = 5
+    Height = 120
+    Top = 35
+    Width = 131
+    Align = alLeft
+    AutoFillColumns = True
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 35
+    ColCount = 1
+    Columns = <    
+      item
+        Title.Caption = 'File'
+        Width = 116
+      end>
+    DefaultRowHeight = 18
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goSmoothScroll]
+    ScrollBars = ssVertical
+    TabOrder = 4
+    OnSelectCell = FileListGridSelectCell
+    ColWidths = (
+      116
+    )
+  end
+  object CloseBtn: TButton
+    Left = 395
+    Height = 25
+    Top = 5
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = '&Close'
+    ModalResult = 11
+    OnClick = CloseBtnClick
+    TabOrder = 5
+  end
+  object RefreshBtn: TButton
+    Left = 5
+    Height = 25
+    Top = 5
+    Width = 75
+    Caption = '&Refresh'
+    OnClick = RefreshBtnClick
+    TabOrder = 6
+  end
+end

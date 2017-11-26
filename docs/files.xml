@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<fpdoc-descriptions>
+  <package name="Prognosti">
+    <short>Prognosti Classes Package</short>
+    <descr>A set of classes that implement a virtual file system and a variety of tree algorigthms.</descr>
+    <module name="files">
+      <short>Classes that implement a virtual file system</short>
+      <descr>The TFilecontainer implements a basic filesystem that allows multiple files to be stored within a single file.  Three types of file handles can be created: A standard stream file, a page file where each page is PAGE_SIZE bytes in length, and a btree file where records can be inserted, searched and removed.</descr>
+      <element name="TFileContainer">
+        <short>A container of virtual files</short>
+        <descr>Stores multiple virtual files within a single file in a manner similar to a filesystem.  Virtual files can be resized, added and removed without recreating the master file.  The component maintains the file metadata, free page lists, file allocation tables and provides buffering of disk pages.  Virtual files can be regular files (streams), page files, or btree files.  Users can also store information inside the Metadata stream.  TFileContainer is not thread safe.</descr>
+      </element>
+      <element name="TFileContainer.Fetch">
+        <short>Fetches the page from the buffers, loading it from disk if necessary.</short>
+        <descr>When a page if Fetched or allocated the buffer's RefCount is incremented and when released it's RefCount is decremented.</descr>
+      </element>
+      <element name="TFileContainer.Open">
+        <short>Open's the file, creating it if necessary</short>
+      </element>
+      <element name="TFileContainer.Close">
+        <short>Closes the file</short>
+        <descr>When a file is closed, all open file handles are flushed and freed.  </descr>
+      </element>
+      <element name="TFileContainer.Alloc">
+        <short>Creates a new page in the buffers</short>
+        <descr>Alloc first searches the free page list for the first available free page (nearest the beginning of the file).  If no free pages exist then a new page is appended to the file.  The new page has it's Modified flag set to TRUE and it's RefCount set to 1.</descr>
+      </element>
+      <element name="TFileContainer.Truncate">
+        <short>Truncates the file without regard to buffered pages of file pages.</short>
+        <descr>Truncate will remove the page from the free pages list but does not update FAT tables or remove any buffered copies of the page used by open file handles.  Don't call Truncate directly, instead use the methods in the various file handles.</descr>
+      </element>
+      <element name="TFileContainer.Dispose">
+        <short>Saves any modifications to disk and frees the page</short>
+        <descr>If the Modified flag of the Page is set to TRUE then Dispose writes the page to the disk at the position indicated by Page^.PageNum.  Then the memory for the page and data buffer are freed and Page is set to nil.</descr>
+        <seealso>
+          <link id="TFileContainer.Release">TFileContainer.Release</link>
+        </seealso>
+      </element>
+      <element name="TFileContainer.Release">
+        <short>Releases the page</short>
+        <descr>Decrements the page reference count and sets the Page parameter to nil.  If no other objects are holding a reference to the page (RefCount = 0) then the page buffer is Disposed by calling Dispose().</descr>
+        <seealso>TFileContainer.Dispose</seealso>
+      </element>
+      <element name="TFileContainer.Log">
+        <short>Deletes the page from the page file</short>
+        <descr>If the page to be deleted is at the end of the file then the file is truncated.  Otherwise, the page is replaced with a page near the end of the file if AutoPack = True or is added to the free page list if AutoPack = False</descr>
+      </element>
+      <element name="TFileContainer.Delete">
+        <short>Deletes a page from the file container</short>
+        <descr>If the page is at the end of the file then 
+  Truncate the file
+else
+  if the AutoPack property is True then
+    Take a page from the end of the file and overwrite the page to be deleted
+    Update the page numbers in all the FATs
+  else
+    Add the page to the free page list for future reuse
+</descr>
+      </element>
+      <element name="TFileContainer.DeleteFile">
+        <short>Deletes a virtual file</short>
+        <descr>Deletes the virtual file identified by Filename and returns TRUE if successful.  If the file has any open handles then an EFileError exception is raised.</descr>
+      </element>
+      <element name="TFileContainer.OnLoadMetadata">
+        <short>Used to load additional metadata from the metadata stream</short>
+        <desc>Implement this event to read custom metadata from the metadata stream</desc>
+      </element>
+      <element name="TFileContainer.OnSaveMetadata">
+        <short>Used to store additional metadata in the metadata stream</short>
+        <desc>Implement this event to write custom metadata to the metadata stream</desc>
+      </element>
+      <element name="TFileContainer.LoadMetadata">
+        <short>Triggers the OnLoadMetadata event</short>
+        <descr>
+          <remark>Override in descendants to load additional metadata from the metadata stream</remark>
+        </descr>
+      </element>
+      <element name="TFileContainer.SaveMetadata">
+        <short>Triggers the OnSaveMetadata event</short>
+        <descr>
+          <remark>Override in descendants to store additional metadata to the metadata stream</remark>
+        </descr>
+      </element>
+      <element name="TFileMetaData">
+        <short>Provides a stream-like interface to the file metadata portion of the file</short>
+        <descr>File metadata is a stream of up to MAX_META_SIZE bytes (2036 KB) in length that has it's FAT entries stored in the header page of the file rather than the FAT tables.  It can be used by descendants to store file directory information or other program data.</descr>
+      </element>
+      <element name="TFileInfo">
+        <short>Stores information about a virtual file in the TFileContainer</short>
+        <descr>A list of TFileInfo objects is store in TFileInfos which is automatically populated when a file is opened.  File Info is stored in the metadata stream.</descr>
+      </element>
+      <element name="TFileInfo.Create">
+        <short>Creates a TFileInfo instance</short>
+        <descr>TFileInfo instances are automatically created by various methods of TFileContainer.</descr>
+      </element>
+      <element name="TFileInfo.Name">
+        <short>The filename</short>
+      </element>
+      <element name="TFileInfo.ID">
+        <short>The file ID is used as an index into the FAT chain for the file</short>
+      </element>
+      <element name="TFileInfo.Kind">
+        <short>The type of file handle used by the file</short>
+      </element>
+      <element name="TFileInfo.RootNode">
+        <short>The page index of the BTree root node</short>
+      </element>
+      <element name="TFileInfo.RecordCount">
+        <short>The number of records in the file</short>
+      </element>
+      <element name="TFileInfo.Size">
+        <short>The size of the file</short>
+      </element>
+      <element name="TFileInfo.PageCount">
+        <short>The number of pages used by the file</short>
+        <descr>To calculate the actual space occupied by a file use PageCount * PAGE_SIZE</descr>
+      </element>
+      <element name="TFileInfos">
+        <short>An ordered list of TFileInfo objects sorted by Filename</short>
+        <descr>Provides the FileInfos property of TFileContainer.  </descr>
+      </element>
+      <element name="TFileInfos.Find">
+        <short>Finds a TFileInfo by ID or Name and returns it's index in the Items array</short>
+      </element>
+      <element name="TFileInfos.Count">
+        <short>The number of TFileInfo objects in the list</short>
+      </element>
+      <element name="TFileInfos.Items">
+        <short>An array of TFileInfo objects</short>
+      </element>
+      <element name="TFileInfos.GetID">
+        <short>Retrieves the first free file ID number for a new file</short>
+      </element>
+      <element name="TFileInfos.Insert">
+        <short>Inserts a new TFileInfo object</short>
+      </element>
+      <element name="TFileInfos.Remove">
+        <short>Removes a TFileInfo object from the list and returns TRUE if successful</short>
+      </element>
+      <element name="TFATTable">
+        <short>The in-memory representation of the FAT table for a virtual file</short>
+        <descr>The FAT table is a dynamically allocated stack that can be searched by index.  Use Push to add a PageNum to the end of the stack and Pop to remove a PageNum from the end of the stack.</descr>
+      </element>
+      <element name="TFATTable.Pop">
+        <short>Removes the last PageNum from the stack</short>
+      </element>
+      <element name="TFATTable.Push">
+        <short>Adds PageNum to the stack and returns it's PageIndex</short>
+      </element>
+      <element name="TFATTable.Truncate">
+        <short>Truncates the FAT table before the entry at Index and adjusts memory useage</short>
+      </element>
+      <element name="TFATTable.Clear">
+        <short>Clears the FAT table entries and deallocates memory for the dynamic stack</short>
+      </element>
+      <element name="TFATTable.Items">
+        <short>Get/Set the PageNum and Index.  First item is at index zero. You can add by assigning a value at Index=Count.</short>
+      </element>
+      <element name="TFATTable.Count">
+        <short>Get/Set the number of PageNums in the stack</short>
+      </element>
+      <element name="TFreePages.Truncate">
+        <short>Deletes any free page list entry that is &gt;= PageNum</short>
+      </element>
+      <element name="TFreePages.Insert">
+        <short>Inserts a TPageNum in the free page list at Location</short>
+        <descr>Doesn't perform any range checking</descr>
+      </element>
+      <element name="TFreePages.Add">
+        <short>Adds a TPageNum to the free page list</short>
+        <descr>If the free page table is full, Add will call Pack() to create space in the free page table.</descr>
+      </element>
+      <element name="TBufferedPage">
+        <short>Represents a page that is buffered in memory</short>
+      </element>
+      <element name="TBufferedPage.PageNum">
+        <short>The zero based index of the page as it is stored on disk</short>
+      </element>
+      <element name="TBufferedPage.Data">
+        <short>A pointer to PAGE_SIZE bytes of memory that is an exact copy of the page as stored on disk</short>
+      </element>
+      <element name="TBufferedPage.Modified">
+        <short>Indicates that the page has been modified.</short>
+        <descr>When using TPageFileHandle, Modified must be set to TRUE in user's code or the page will not be flushed to disk</descr>
+      </element>
+      <element name="TBufferedPage.RefCount">
+        <short>Keeps track of how many references there are to this page.  When RefCount = 0 the component may dispose the page</short>
+      </element>
+      <element name="TBufferedPage.Node">
+        <short>A pointer to a BTreeNode when the page belongs to a BTree file</short>
+      </element>
+      <element name="TBufferedPage.FileID">
+        <short>The ID number of the file that owns this page.  </short>
+        <descr>
+          <p>
+            <remark>When ID=0 the page belongs to either the FAT or a metadata page.</remark>
+          </p>
+        </descr>
+      </element>
+      <element name="TBufferedPage.PageIdx">
+        <short>The zero based index of the page as it is stored in the virtual file</short>
+      </element>
+      <element name="PBufferedPage">
+        <short>Pointer to a TBufferedPage</short>
+      </element>
+      <element name="PAGE_SIZE">
+        <short>Size of a TFileContainer page on disk</short>
+      </element>
+      <element name="VERSION">
+        <short>Identifies the version number or format of the file</short>
+      </element>
+      <element name="MAX_FREE_PAGES">
+        <short>Number of free pages that can be stored</short>
+      </element>
+      <element name="MAX_FILE_COUNT">
+        <short>Number of virtual files that can be stored in a TFileContainer</short>
+      </element>
+      <element name="MAX_META_PAGES">
+        <short>Maximum number of metadata pages that can be stored in the TFileContainer</short>
+      </element>
+      <element name="MAX_META_SIZE">
+        <short>Maximum size of the metadata stream</short>
+      </element>
+      <element name="MAX_FAT_PAGE_ENTRIES">
+        <short>Number of FAT table of entries in a FAT page</short>
+      </element>
+      <element name="TPageNum">
+        <short>A page number in the file as stored on disk</short>
+      </element>
+      <element name="TPageIndex">
+        <short>The page number in a virtual file</short>
+        <descr>Looking up a virtual TPageIndex in a TFATTable returns a TPageNum that is used to read/write the page on disk </descr>
+      </element>
+      <element name="TFileHeader">
+        <short>Represents page 0 of the on disk file</short>
+        <descr>The first page of the on disk file stores:
+
+The list of free pages
+The FAT and file information for the Metadata stream
+A pointer to the first FAT page in the FAT chain for each file</descr>
+      </element>
+      <element name="TFATPage">
+        <short>Represents a FAT page on disk</short>
+        <descr>A FAT page is like a linked list.  The first page in the list is stored in the file header and then each page is read sequentially to retrieve the FAT table.</descr>
+      </element>
+      <element name="TFileProgressEvent">
+        <short>During long read/write operations, the OnProgress event is fired for each page read/written</short>
+      </element>
+      <element name="TLogEvent">
+        <short>A simple logging system used for debugging</short>
+      </element>
+      <element name="TBufferMode">
+        <short>Determines how page buffering is handled</short>
+        <descr>
+          <dl>
+            <dt>bmSequential</dt>
+            <dd>The most recently accessed page is retained in memory</dd>
+            <dt>bmRandomAccess</dt>
+            <dd>All accessed pages are retained in memory.  To write the buffers to disk and dispose of the buffers call Flush on the file handle.</dd>
+          </dl>
+        </descr>
+      </element>
+      <element name="TFileKind">
+        <short>Identifies the type of file</short>
+        <descr>A TFileKind is provided when a file is first created.  It is stored in the metadata and used to determine what type of handle to create when OpenFile is called to open the file.
+
+fkStream - The file uses a TStreamFileHandle
+fkPage - The file uses a TPageFileHandle
+fkBTree - The file uses a TBTreeFileHandle</descr>
+      </element>
+      <element name="TMetadataEvent">
+        <short>The event type for the LoadMetadata and SaveMetadata events</short>
+        <descr>OnLoadMetadata and OnSaveMetadata can be used by to store additional information in the file container metadata stream.</descr>
+      </element>
+    <element name="TFreePages"><short>A list of free pages stored in descending sort order.</short>
+      </element><element name="TFreePages.Delete"><short>Deletes the TPageNum at Location from the free page list</short>
+      </element><element name="TFreePages.Remove"><short>Removes PageNum from the free page list.  Returns true if PageNum was removed.</short>
+      </element><element name="TFreePages.GetFirst"><short>Retrieves the lowest TPageNum from the free page list</short>
+      </element><element name="TFreePages.GetLowest"><short>Retrieves the lowest TPageNum from the free page list</short>
+      </element><element name="TFreePages.BinSearch"><short>Performs a binary search for Key and returns TRUE if successful.  If found, Location returns the index of the entry, otherwise Location returns the insert location for Key</short>
+      </element><element name="TFreePages.PageNumChanged"><short>Searches the free pages list for OldPageNum and replaces it with NewPageNum.  Returns true if OldPageNum was found.</short>
+      </element>
+    </module>
+  </package>
+</fpdoc-descriptions>

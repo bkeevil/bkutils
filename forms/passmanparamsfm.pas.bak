@@ -1,0 +1,33 @@
+unit PassManParamsFM;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ValEdit,
+  StdCtrls;
+
+type
+
+  { TForm2 }
+
+  TForm2 = class(TForm)
+    OKBtn: TButton;
+    CancelBtn: TButton;
+    ValueListEditor1: TValueListEditor;
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.lfm}
+
+end.
+

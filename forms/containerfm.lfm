@@ -1,0 +1,427 @@
+object ContainerPropertiesDlg: TContainerPropertiesDlg
+  Left = 767
+  Height = 296
+  Top = 97
+  Width = 306
+  BorderStyle = bsDialog
+  Caption = 'Properties'
+  ClientHeight = 296
+  ClientWidth = 306
+  LCLVersion = '1.2.1.0'
+  object CloseBtn: TButton
+    Left = 224
+    Height = 25
+    Top = 263
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'Close'
+    Default = True
+    ModalResult = 11
+    OnClick = CloseBtnClick
+    TabOrder = 0
+  end
+  object PageControl: TPageControl
+    Left = 8
+    Height = 248
+    Top = 8
+    Width = 292
+    ActivePage = SecurityTab
+    MultiLine = True
+    TabIndex = 1
+    TabOrder = 1
+    OnChange = PageControlChange
+    Options = [nboMultiLine]
+    object GeneralTab: TTabSheet
+      Caption = '&General'
+      ClientHeight = 219
+      ClientWidth = 282
+      object LBFilename: TLabel
+        Left = 91
+        Height = 16
+        Top = 11
+        Width = 76
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Filename:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBFileSize: TLabel
+        Left = 7
+        Height = 16
+        Top = 63
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'File Size:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBPageCount: TLabel
+        Left = 7
+        Height = 16
+        Top = 89
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Page Count:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBVersion: TLabel
+        Left = 7
+        Height = 16
+        Top = 37
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Driver Version:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBFreePageCount: TLabel
+        Left = 7
+        Height = 16
+        Top = 115
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Free Page Count:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBMetadataSize: TLabel
+        Left = 7
+        Height = 16
+        Top = 141
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Metadata Stream Size:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBMetadataPageCount: TLabel
+        Left = 7
+        Height = 16
+        Top = 167
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Metadata Page Count:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object LBFileCount: TLabel
+        Left = 7
+        Height = 16
+        Top = 193
+        Width = 161
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'File Count:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Filename: TLabel
+        Left = 172
+        Height = 15
+        Top = 11
+        Width = 58
+        Caption = 'Filename:'
+        ParentColor = False
+      end
+      object Version: TLabel
+        Left = 172
+        Height = 15
+        Top = 37
+        Width = 139
+        Caption = 'Storage Driver Version:'
+        ParentColor = False
+      end
+      object FileSize: TLabel
+        Left = 172
+        Height = 15
+        Top = 63
+        Width = 52
+        Caption = 'File Size:'
+        ParentColor = False
+      end
+      object PageCount: TLabel
+        Left = 172
+        Height = 15
+        Top = 89
+        Width = 73
+        Caption = 'Page Count:'
+        ParentColor = False
+      end
+      object FreePageCount: TLabel
+        Left = 172
+        Height = 15
+        Top = 115
+        Width = 102
+        Caption = 'Free Page Count:'
+        ParentColor = False
+      end
+      object MetadataSize: TLabel
+        Left = 172
+        Height = 15
+        Top = 141
+        Width = 136
+        Caption = 'Metadata Stream Size:'
+        ParentColor = False
+      end
+      object MetadataPageCount: TLabel
+        Left = 172
+        Height = 15
+        Top = 167
+        Width = 133
+        Caption = 'Metadata Page Count:'
+        ParentColor = False
+      end
+      object FileCount: TLabel
+        Left = 172
+        Height = 15
+        Top = 193
+        Width = 133
+        Caption = 'Metadata Page Count:'
+        ParentColor = False
+      end
+    end
+    object SecurityTab: TTabSheet
+      Caption = 'Security'
+      ClientHeight = 219
+      ClientWidth = 282
+      object Password: TEdit
+        Left = 8
+        Height = 27
+        Top = 28
+        Width = 267
+        BorderSpacing.Left = 8
+        EchoMode = emPassword
+        OnChange = PasswordChange
+        PasswordChar = '*'
+        TabOrder = 0
+      end
+      object LBPassword: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 60
+        Caption = 'Password:'
+        ParentColor = False
+      end
+      object SetPasswordBtn: TButton
+        Left = 48
+        Height = 25
+        Top = 64
+        Width = 71
+        Caption = 'Set'
+        OnClick = SetPasswordBtnClick
+        TabOrder = 1
+      end
+      object ChangePasswordBtn: TButton
+        Left = 126
+        Height = 25
+        Top = 64
+        Width = 71
+        Caption = 'Change'
+        OnClick = ChangePasswordBtnClick
+        TabOrder = 2
+      end
+      object DecryptBtn: TButton
+        Left = 204
+        Height = 25
+        Top = 184
+        Width = 71
+        Caption = 'Decrypt'
+        OnClick = DecryptBtnClick
+        TabOrder = 3
+      end
+      object EncryptBtn: TButton
+        Left = 126
+        Height = 25
+        Top = 184
+        Width = 71
+        Caption = 'Encrypt'
+        OnClick = EncryptBtnClick
+        TabOrder = 4
+      end
+      object ClearPasswordBtn: TButton
+        Left = 204
+        Height = 25
+        Top = 64
+        Width = 71
+        Caption = 'Clear'
+        OnClick = ClearPasswordBtnClick
+        TabOrder = 5
+      end
+      object AlgorithmCombo: TComboBox
+        Left = 8
+        Height = 27
+        Top = 150
+        Width = 267
+        ItemHeight = 0
+        OnChange = AlgorithmComboChange
+        TabOrder = 6
+      end
+      object LBAlgorithm: TLabel
+        Left = 8
+        Height = 15
+        Top = 129
+        Width = 133
+        Caption = 'Encryption Algorithm:'
+        ParentColor = False
+      end
+    end
+    object FreePagesTab: TTabSheet
+      Caption = 'Free Pages'
+      ClientHeight = 219
+      ClientWidth = 282
+      object FreePages: TStringGrid
+        Left = 8
+        Height = 203
+        Top = 8
+        Width = 266
+        Align = alClient
+        AutoEdit = False
+        AutoFillColumns = True
+        BorderSpacing.Around = 8
+        ColCount = 2
+        Columns = <        
+          item
+            Alignment = taRightJustify
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Index'
+            Width = 131
+          end        
+          item
+            Alignment = taRightJustify
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Value'
+            Width = 131
+          end>
+        DefaultRowHeight = 16
+        FixedCols = 0
+        RowCount = 257
+        ScrollBars = ssVertical
+        TabOrder = 0
+        ColWidths = (
+          131
+          131
+        )
+      end
+    end
+    object MetadataTab: TTabSheet
+      Caption = 'Metadata'
+      ClientHeight = 219
+      ClientWidth = 282
+      object MetaPages: TStringGrid
+        Left = 8
+        Height = 204
+        Top = 8
+        Width = 268
+        Align = alClient
+        AutoEdit = False
+        AutoFillColumns = True
+        BorderSpacing.Around = 8
+        ColCount = 2
+        Columns = <        
+          item
+            Alignment = taRightJustify
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Index'
+            Width = 132
+          end        
+          item
+            Alignment = taRightJustify
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Value'
+            Width = 132
+          end>
+        DefaultRowHeight = 16
+        FixedCols = 0
+        RowCount = 257
+        ScrollBars = ssVertical
+        TabOrder = 0
+        ColWidths = (
+          132
+          132
+        )
+      end
+    end
+    object FilesTab: TTabSheet
+      Caption = 'Files'
+      ClientHeight = 219
+      ClientWidth = 282
+      object FilesGrid: TStringGrid
+        Left = 8
+        Height = 204
+        Top = 8
+        Width = 268
+        Align = alClient
+        AutoEdit = False
+        AutoFillColumns = True
+        BorderSpacing.Around = 8
+        ColCount = 3
+        Columns = <        
+          item
+            ButtonStyle = cbsEllipsis
+            SizePriority = 0
+            Title.Caption = 'Name'
+            Width = 130
+          end        
+          item
+            Alignment = taRightJustify
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Size'
+            Width = 67
+          end        
+          item
+            Alignment = taRightJustify
+            ButtonStyle = cbsEllipsis
+            Title.Alignment = taRightJustify
+            Title.Caption = 'Kind'
+            Width = 67
+          end>
+        DefaultRowHeight = 16
+        FixedCols = 0
+        RowCount = 257
+        ScrollBars = ssVertical
+        TabOrder = 0
+        OnButtonClick = FilesGridButtonClick
+        ColWidths = (
+          130
+          67
+          67
+        )
+      end
+    end
+  end
+  object DefragBtn: TButton
+    Left = 8
+    Height = 25
+    Top = 263
+    Width = 66
+    Caption = 'Defrag'
+    OnClick = DefragBtnClick
+    TabOrder = 2
+  end
+  object PackBtn: TButton
+    Left = 81
+    Height = 25
+    Top = 263
+    Width = 67
+    Caption = 'Pack'
+    OnClick = PackBtnClick
+    TabOrder = 3
+  end
+end

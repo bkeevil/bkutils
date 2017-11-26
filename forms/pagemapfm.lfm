@@ -1,0 +1,41 @@
+object PageMapForm: TPageMapForm
+  Left = 321
+  Height = 489
+  Top = 177
+  Width = 945
+  Caption = 'Page Map'
+  ClientHeight = 489
+  ClientWidth = 945
+  LCLVersion = '1.0.14.0'
+  object ScrollBox: TScrollBox
+    Left = 0
+    Height = 466
+    Top = 0
+    Width = 945
+    HorzScrollBar.Page = 941
+    VertScrollBar.Page = 462
+    Align = alClient
+    ClientHeight = 462
+    ClientWidth = 941
+    TabOrder = 0
+    OnResize = ScrollBoxResize
+    object PaintBox: TPaintBox
+      Left = 0
+      Height = 233
+      Top = 0
+      Width = 385
+      Color = clWindow
+      ParentColor = False
+      ParentShowHint = False
+      OnMouseMove = PaintBoxMouseMove
+      OnPaint = PaintBoxPaint
+    end
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 466
+    Width = 945
+    Panels = <>
+  end
+end

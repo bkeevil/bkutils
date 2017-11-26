@@ -1,0 +1,100 @@
+object DebugLogForm: TDebugLogForm
+  Left = 946
+  Height = 714
+  Top = 56
+  Width = 649
+  BorderStyle = bsSizeToolWin
+  Caption = 'Debug Log'
+  ClientHeight = 714
+  ClientWidth = 649
+  LCLVersion = '1.6.4.0'
+  object CloseBtn: TButton
+    Left = 566
+    Height = 25
+    Top = 9
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = '&Close'
+    ModalResult = 11
+    OnClick = CloseBtnClick
+    TabOrder = 0
+  end
+  object ClearBtn: TButton
+    Left = 486
+    Height = 25
+    Top = 9
+    Width = 75
+    Anchors = [akTop, akRight]
+    Caption = '&Clear'
+    OnClick = ClearBtnClick
+    TabOrder = 1
+  end
+  object FilterText: TEdit
+    Left = 8
+    Height = 27
+    Top = 9
+    Width = 144
+    OnExit = FilterTextExit
+    TabOrder = 2
+  end
+  object CBFiltered: TCheckBox
+    Left = 160
+    Height = 22
+    Top = 9
+    Width = 66
+    Caption = 'Filtered'
+    OnChange = CBFilteredChange
+    TabOrder = 3
+  end
+  object CBEnabled: TCheckBox
+    Left = 231
+    Height = 22
+    Top = 9
+    Width = 69
+    Caption = 'Enabled'
+    Checked = True
+    OnChange = CBEnabledChange
+    State = cbChecked
+    TabOrder = 4
+  end
+  object Grid: TStringGrid
+    Left = 8
+    Height = 660
+    Top = 46
+    Width = 633
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoAdvance = aaNone
+    AutoEdit = False
+    AutoFillColumns = True
+    ColCount = 3
+    Columns = <    
+      item
+        ReadOnly = True
+        SizePriority = 0
+        Title.Caption = 'Type'
+        Width = 80
+      end    
+      item
+        ReadOnly = True
+        SizePriority = 0
+        Title.Caption = 'Module'
+        Width = 120
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Message'
+        Width = 431
+      end>
+    DefaultRowHeight = 18
+    ExtendedSelect = False
+    FixedCols = 0
+    Options = [goThumbTracking, goSmoothScroll]
+    RowCount = 1
+    TabOrder = 5
+    ColWidths = (
+      80
+      120
+      431
+    )
+  end
+end

@@ -1,0 +1,160 @@
+object HexEditForm: THexEditForm
+  Left = 458
+  Height = 467
+  Top = 131
+  Width = 593
+  Caption = 'Hex Editor'
+  ClientHeight = 467
+  ClientWidth = 593
+  LCLVersion = '1.0.14.0'
+  object CloseBtn: TButton
+    Left = 510
+    Height = 25
+    Top = 436
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = '&Close'
+    OnClick = CloseBtnClick
+    TabOrder = 0
+  end
+  object Grid: TStringGrid
+    Left = 8
+    Height = 420
+    Top = 8
+    Width = 577
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFillColumns = True
+    ColCount = 18
+    Columns = <    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '0'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '1'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '2'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '3'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '4'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '5'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '6'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '7'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '8'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = '9'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'A'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'B'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'C'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'D'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'E'
+        Width = 19
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Alignment = taRightJustify
+        Title.Caption = 'F'
+        Width = 19
+      end    
+      item
+        SizePriority = 0
+        Title.Caption = 'ASCII'
+        Width = 180
+      end>
+    DefaultColWidth = 80
+    DefaultRowHeight = 17
+    Font.Pitch = fpFixed
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goSmoothScroll, goFixedColSizing]
+    ParentFont = False
+    ScrollBars = ssVertical
+    TabOrder = 1
+    TitleFont.Pitch = fpFixed
+    TitleFont.Style = [fsBold]
+    ColWidths = (
+      71
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      19
+      180
+    )
+  end
+end
