@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="rbtreetest.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="rbtreetest"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="58" Y="18"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BinaryTreeForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="binarytreefm"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="285"/>
+        <CursorPos X="1" Y="299"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../rbtree.pas"/>
+        <UnitName Value="rbtree"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="445"/>
+        <CursorPos X="21" Y="471"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="23" HistoryIndex="22">
+      <Position1>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="79" Column="27" TopLine="53"/>
+      </Position1>
+      <Position2>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="18" Column="66" TopLine="1"/>
+      </Position2>
+      <Position3>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="13" Column="24" TopLine="1"/>
+      </Position3>
+      <Position4>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="464" Column="48" TopLine="438"/>
+      </Position4>
+      <Position5>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="197" Column="18" TopLine="185"/>
+      </Position5>
+      <Position6>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="16" Column="3" TopLine="1"/>
+      </Position6>
+      <Position7>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="220" Column="18" TopLine="208"/>
+      </Position7>
+      <Position8>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="264" Column="18" TopLine="248"/>
+      </Position8>
+      <Position9>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="272" Column="18" TopLine="262"/>
+      </Position9>
+      <Position10>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="295" Column="27" TopLine="282"/>
+      </Position10>
+      <Position11>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="70" Column="23" TopLine="58"/>
+      </Position11>
+      <Position12>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="302" Column="22" TopLine="285"/>
+      </Position12>
+      <Position13>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="300" Column="28" TopLine="287"/>
+      </Position13>
+      <Position14>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="75" Column="16" TopLine="62"/>
+      </Position14>
+      <Position15>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="358" Column="17" TopLine="351"/>
+      </Position15>
+      <Position16>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="378" Column="18" TopLine="366"/>
+      </Position16>
+      <Position17>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="394" Column="18" TopLine="382"/>
+      </Position17>
+      <Position18>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="422" Column="18" TopLine="399"/>
+      </Position18>
+      <Position19>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="301" Column="1" TopLine="287"/>
+      </Position19>
+      <Position20>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="106" Column="24" TopLine="82"/>
+      </Position20>
+      <Position21>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="299" Column="1" TopLine="286"/>
+      </Position21>
+      <Position22>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="416" Column="91" TopLine="408"/>
+      </Position22>
+      <Position23>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="299" Column="1" TopLine="285"/>
+      </Position23>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

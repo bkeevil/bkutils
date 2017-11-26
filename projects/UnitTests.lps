@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="56">
+      <Unit0>
+        <Filename Value="UnitTests.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="16" Y="7"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../rbtree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="199"/>
+        <CursorPos Y="220"/>
+        <UsageCount Value="126"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="35" Y="59"/>
+        <UsageCount Value="126"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../buffers.pas"/>
+        <UnitName Value="Buffers"/>
+        <TopLine Value="206"/>
+        <CursorPos Y="225"/>
+        <UsageCount Value="23"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../tests/test_buffers.pas"/>
+        <CursorPos X="45" Y="9"/>
+        <UsageCount Value="23"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../tests/test_base32.pas"/>
+        <TopLine Value="61"/>
+        <CursorPos Y="73"/>
+        <UsageCount Value="39"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../base32.pas"/>
+        <UnitName Value="Base32"/>
+        <CursorPos X="3" Y="20"/>
+        <UsageCount Value="38"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../btree.pas"/>
+        <CursorPos X="3" Y="20"/>
+        <UsageCount Value="27"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../tests/test_btree2.pas"/>
+        <TopLine Value="37"/>
+        <CursorPos X="47" Y="49"/>
+        <UsageCount Value="27"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../files.pas"/>
+        <TopLine Value="1449"/>
+        <CursorPos X="5" Y="1406"/>
+        <UsageCount Value="165"/>
+        <Bookmarks Count="1">
+          <Item0 Y="1721" ID="1"/>
+        </Bookmarks>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../tests/test_filecontainer.pas"/>
+        <TopLine Value="4"/>
+        <CursorPos X="120" Y="19"/>
+        <UsageCount Value="153"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../tests/test_streamfilehandle.pas"/>
+        <TopLine Value="148"/>
+        <CursorPos X="19" Y="161"/>
+        <UsageCount Value="130"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../tests/test_metadata.pas"/>
+        <TopLine Value="27"/>
+        <CursorPos X="26" Y="34"/>
+        <UsageCount Value="45"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../tests/test_freepages.pas"/>
+        <TopLine Value="3"/>
+        <CursorPos X="24" Y="76"/>
+        <UsageCount Value="140"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../tests/test_pagefilehandle.pas"/>
+        <TopLine Value="27"/>
+        <CursorPos Y="49"/>
+        <UsageCount Value="57"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../tests/test_fileoperations.pas"/>
+        <TopLine Value="40"/>
+        <CursorPos X="17" Y="50"/>
+        <UsageCount Value="44"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="../tests/test_fileinfos.pas"/>
+        <TopLine Value="14"/>
+        <CursorPos X="66" Y="22"/>
+        <UsageCount Value="30"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../tests/test_filebuffer.pas"/>
+        <TopLine Value="67"/>
+        <CursorPos X="10" Y="93"/>
+        <UsageCount Value="141"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="../btree3.pas"/>
+        <TopLine Value="322"/>
+        <CursorPos Y="323"/>
+        <UsageCount Value="97"/>
+        <Bookmarks Count="4">
+          <Item0 X="39" Y="250" ID="2"/>
+          <Item1 X="11" Y="383" ID="3"/>
+          <Item2 X="21" Y="427" ID="4"/>
+          <Item3 X="31" Y="575" ID="6"/>
+        </Bookmarks>
+      </Unit18>
+      <Unit19>
+        <Filename Value="../tests/test_btree3.pas"/>
+        <TopLine Value="49"/>
+        <CursorPos Y="54"/>
+        <UsageCount Value="31"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../tests/test_btreenode.pas"/>
+        <TopLine Value="26"/>
+        <CursorPos Y="34"/>
+        <UsageCount Value="26"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../binarytree.pas"/>
+        <TopLine Value="59"/>
+        <CursorPos X="5" Y="77"/>
+        <UsageCount Value="72"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../tests/test_binarytree.pas"/>
+        <TopLine Value="196"/>
+        <CursorPos X="24" Y="226"/>
+        <UsageCount Value="72"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../errormsg.pas"/>
+        <UnitName Value="ErrorMsg"/>
+        <CursorPos Y="34"/>
+        <UsageCount Value="42"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../freepages.pas"/>
+        <CursorPos X="3" Y="13"/>
+        <UsageCount Value="39"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-fpcunit/src/fpcunit.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="79"/>
+        <CursorPos X="14" Y="93"/>
+        <UsageCount Value="12"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="/usr/lib64/lazarus/components/fpcunit/guitestrunner.pas"/>
+        <UnitName Value="GuiTestRunner"/>
+        <TopLine Value="171"/>
+        <CursorPos X="3" Y="40"/>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/inc/objpash.inc"/>
+        <TopLine Value="182"/>
+        <CursorPos X="23" Y="192"/>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-fpcunit/src/testutils.pp"/>
+        <CursorPos Y="3"/>
+        <UsageCount Value="10"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-fpcunit/src/testregistry.pp"/>
+        <TopLine Value="20"/>
+        <CursorPos X="11" Y="32"/>
+        <UsageCount Value="10"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/inc/systemh.inc"/>
+        <TopLine Value="902"/>
+        <CursorPos X="11" Y="921"/>
+        <UsageCount Value="2"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/packages/fcl-fpcunit/src/fpcunit.pp"/>
+        <TopLine Value="34"/>
+        <CursorPos X="3" Y="51"/>
+        <UsageCount Value="3"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/win/wininc/func.inc"/>
+        <TopLine Value="167"/>
+        <CursorPos X="10" Y="183"/>
+        <UsageCount Value="2"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="../../lazarus/components/fpcunit/guitestrunner.pas"/>
+        <ComponentName Value="GUITestRunner"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GuiTestRunner"/>
+        <TopLine Value="224"/>
+        <CursorPos Y="247"/>
+        <UsageCount Value="20"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/objpas/classes/classesh.inc"/>
+        <TopLine Value="343"/>
+        <CursorPos X="12" Y="357"/>
+        <UsageCount Value="3"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/objpas/classes/lists.inc"/>
+        <TopLine Value="794"/>
+        <CursorPos X="3" Y="796"/>
+        <UsageCount Value="3"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/inc/objpash.inc"/>
+        <TopLine Value="175"/>
+        <CursorPos X="22" Y="194"/>
+        <UsageCount Value="2"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/objpas/sysutils/sysutilh.inc"/>
+        <TopLine Value="160"/>
+        <CursorPos X="4" Y="177"/>
+        <UsageCount Value="2"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="../../Desktop/lazarus.desktop"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/sysutils/sysunih.inc"/>
+        <TopLine Value="20"/>
+        <CursorPos X="10" Y="42"/>
+        <UsageCount Value="5"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/inc/genstr.inc"/>
+        <TopLine Value="212"/>
+        <CursorPos X="11" Y="220"/>
+        <UsageCount Value="5"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/sysutils/syspchh.inc"/>
+        <TopLine Value="22"/>
+        <CursorPos X="10" Y="38"/>
+        <UsageCount Value="11"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="../../lazarus/lcl/utf8process.pp"/>
+        <UnitName Value="UTF8Process"/>
+        <TopLine Value="160"/>
+        <CursorPos X="59" Y="179"/>
+        <UsageCount Value="1"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/rtl/inc/file.inc"/>
+        <TopLine Value="348"/>
+        <CursorPos X="3" Y="353"/>
+        <UsageCount Value="2"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/classes/classesh.inc"/>
+        <TopLine Value="947"/>
+        <CursorPos X="17" Y="954"/>
+        <UsageCount Value="5"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/classes/streams.inc"/>
+        <TopLine Value="589"/>
+        <CursorPos X="3" Y="592"/>
+        <UsageCount Value="5"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/types.pp"/>
+        <TopLine Value="279"/>
+        <CursorPos X="3" Y="303"/>
+        <UsageCount Value="5"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="/usr/lib64/lazarus/components/lazutils/masks.pas"/>
+        <UnitName Value="Masks"/>
+        <TopLine Value="17"/>
+        <CursorPos X="22" Y="29"/>
+        <UsageCount Value="3"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/inc/systemh.inc"/>
+        <TopLine Value="331"/>
+        <CursorPos X="3" Y="343"/>
+        <UsageCount Value="13"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="../../1.14/lcl/extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <TopLine Value="28"/>
+        <CursorPos X="21" Y="631"/>
+        <UsageCount Value="12"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="../../1.14/lcl/include/radiogroup.inc"/>
+        <TopLine Value="31"/>
+        <CursorPos X="3" Y="545"/>
+        <UsageCount Value="12"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="../../1.14/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <TopLine Value="1478"/>
+        <CursorPos X="15" Y="1488"/>
+        <UsageCount Value="12"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="../../1.14/lcl/include/control.inc"/>
+        <TopLine Value="566"/>
+        <CursorPos X="3" Y="578"/>
+        <UsageCount Value="12"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="../../1.14/fpc/2.6.2/source/rtl/objpas/classes/classesh.inc"/>
+        <TopLine Value="222"/>
+        <CursorPos X="3" Y="233"/>
+        <UsageCount Value="12"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/sysutils/syspch.inc"/>
+        <TopLine Value="14"/>
+        <CursorPos X="3" Y="35"/>
+        <UsageCount Value="11"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="80"/>
+        <CursorPos Y="85"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit55>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="126" TopLine="110"/>
+      </Position1>
+      <Position2>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="127" TopLine="110"/>
+      </Position2>
+      <Position3>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="128" TopLine="110"/>
+      </Position3>
+      <Position4>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="129" TopLine="110"/>
+      </Position4>
+      <Position5>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="152" TopLine="139"/>
+      </Position5>
+      <Position6>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="161" TopLine="139"/>
+      </Position6>
+      <Position7>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="87" TopLine="74"/>
+      </Position7>
+      <Position8>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="88" TopLine="74"/>
+      </Position8>
+      <Position9>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="94" TopLine="74"/>
+      </Position9>
+      <Position10>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="162" TopLine="150"/>
+      </Position10>
+      <Position11>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="188" TopLine="175"/>
+      </Position11>
+      <Position12>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="190" TopLine="175"/>
+      </Position12>
+      <Position13>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="152" TopLine="138"/>
+      </Position13>
+      <Position14>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="154" TopLine="138"/>
+      </Position14>
+      <Position15>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="155" TopLine="138"/>
+      </Position15>
+      <Position16>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="156" TopLine="138"/>
+      </Position16>
+      <Position17>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="157" TopLine="138"/>
+      </Position17>
+      <Position18>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="220" TopLine="208"/>
+      </Position18>
+      <Position19>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="192" TopLine="179"/>
+      </Position19>
+      <Position20>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="208" TopLine="195"/>
+      </Position20>
+      <Position21>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="209" TopLine="195"/>
+      </Position21>
+      <Position22>
+        <Filename Value="../rbtree.pas"/>
+        <Caret Line="220" TopLine="199"/>
+      </Position22>
+      <Position23>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="92" TopLine="79"/>
+      </Position23>
+      <Position24>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="55" TopLine="42"/>
+      </Position24>
+      <Position25>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="258" TopLine="239"/>
+      </Position25>
+      <Position26>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="198" Column="54" TopLine="172"/>
+      </Position26>
+      <Position27>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="211" Column="27" TopLine="194"/>
+      </Position27>
+      <Position28>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="70" TopLine="57"/>
+      </Position28>
+      <Position29>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="156" Column="16" TopLine="143"/>
+      </Position29>
+      <Position30>
+        <Filename Value="../tests/test_rbtree.pas"/>
+        <Caret Line="70" TopLine="57"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="../tests/test_filebuffer.pas"/>
+        <Line Value="42"/>
+      </Item1>
+    </BreakPoints>
+    <Watches Count="2">
+      <Item1>
+        <Expression Value="Root^.Data^"/>
+        <DisplayStyle Value="wdfMemDump"/>
+      </Item1>
+      <Item2>
+        <Expression Value="Node^.Data^"/>
+        <DisplayStyle Value="wdfMemDump"/>
+      </Item2>
+    </Watches>
+  </Debugging>
+</CONFIG>

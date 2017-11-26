@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="10"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="FileContainer"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <LazDoc Paths="../docs"/>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="bkutils"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="12">
+      <Unit0>
+        <Filename Value="FileContainer.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../forms/filecontainerfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FileContainerForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="FileContainerFM"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../files.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Files"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../forms/containerfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ContainerPropertiesDlg"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ContainerFM"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../forms/hexeditfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="HexEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HexEditFM"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../forms/texteditfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="TextEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../forms/pagemapfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PageMapForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PageMapFM"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../forms/fatfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FatInspectorForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../forms/debuglogfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DebugLogForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DebugLogFM"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../forms/progressfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProgressForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProgressFM"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../forms/passwdfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PasswordForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PasswdFM"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../tests/btreetesthelper.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BTreeTestHelper"/>
+      </Unit11>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../forms;..;../tests"/>
+      <UnitOutputDirectory Value="../lib"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <IncludeAssertionCode Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+      </Checks>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf2Set"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <IgnoredMessages idx5060="True" idx5057="True" idx5024="True"/>
+      </CompilerMessages>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

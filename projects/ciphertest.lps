@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="18">
+      <Unit0>
+        <Filename Value="ciphertest.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ciphertest"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="25"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CipherForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="cipherfm"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../ciphers.pas"/>
+        <UnitName Value="Ciphers"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="42"/>
+        <CursorPos X="1" Y="138"/>
+        <UsageCount Value="25"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../diffiehellman.pas"/>
+        <UnitName Value="DiffieHellman"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="216"/>
+        <CursorPos X="61" Y="221"/>
+        <UsageCount Value="25"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../buffers.pas"/>
+        <UnitName Value="Buffers"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="176"/>
+        <CursorPos X="7" Y="1"/>
+        <UsageCount Value="13"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="/usr/share/lazarus/1.2.0/lcl/include/customform.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="917"/>
+        <CursorPos X="1" Y="931"/>
+        <UsageCount Value="9"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-base/src/blowfish.pp"/>
+        <UnitName Value="BlowFish"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="19"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="13"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../../sockets/encryptedsocketsun.pas"/>
+        <UnitName Value="EncryptedSocketsUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="32"/>
+        <UsageCount Value="13"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../cipherutils.pas"/>
+        <UnitName Value="CipherUtils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="8" Y="15"/>
+        <UsageCount Value="24"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../../sockets/socketun.pas"/>
+        <UnitName Value="SocketUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="9"/>
+        <UsageCount Value="10"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../../sockets/protocolun.pas"/>
+        <UnitName Value="ProtocolUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="211"/>
+        <CursorPos X="1" Y="225"/>
+        <UsageCount Value="10"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../../sockets/sessionun.pas"/>
+        <UnitName Value="SessionUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="22" Y="8"/>
+        <UsageCount Value="10"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/classes/classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1599"/>
+        <CursorPos X="21" Y="1611"/>
+        <UsageCount Value="10"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../sockets/messagesun.pas"/>
+        <UnitName Value="MessagesUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="120"/>
+        <CursorPos X="3" Y="122"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../../sockets/serverun.pas"/>
+        <UnitName Value="ServerUN"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../../crypto/crypto.pas"/>
+        <UnitName Value="Crypto"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="../../crypto/cryptoutils.pas"/>
+        <UnitName Value="CryptoUtils"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../../crypto/diffiehellman.pas"/>
+        <UnitName Value="DiffieHellman"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit17>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="6" HistoryIndex="5">
+      <Position1>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <Caret Line="120" Column="21" TopLine="1"/>
+      </Position1>
+      <Position2>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <Caret Line="14" Column="52" TopLine="1"/>
+      </Position2>
+      <Position3>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <Caret Line="9" Column="11" TopLine="1"/>
+      </Position3>
+      <Position4>
+        <Filename Value="../../crypto/crypto.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position4>
+      <Position5>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <Caret Line="9" Column="15" TopLine="1"/>
+      </Position5>
+      <Position6>
+        <Filename Value="../forms/cipherfm.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position6>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

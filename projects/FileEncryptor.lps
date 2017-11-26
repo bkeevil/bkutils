@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="38">
+      <Unit0>
+        <Filename Value="FileEncryptor.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="4"/>
+        <UsageCount Value="252"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../forms/fileencryptorfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FileContainerForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="269"/>
+        <CursorPos Y="287"/>
+        <UsageCount Value="252"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../files.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Files"/>
+        <TopLine Value="2161"/>
+        <CursorPos X="31" Y="2179"/>
+        <UsageCount Value="252"/>
+        <Bookmarks Count="2">
+          <Item0 ID="4"/>
+          <Item1 X="7" Y="2882" ID="1"/>
+        </Bookmarks>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../forms/securityfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SecurityDlg"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="10" Y="9"/>
+        <UsageCount Value="248"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../forms/progressfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProgressForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProgressFM"/>
+        <TopLine Value="23"/>
+        <CursorPos X="3" Y="48"/>
+        <UsageCount Value="200"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../forms/passwdfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PasswordForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PasswdFM"/>
+        <TopLine Value="25"/>
+        <CursorPos X="10" Y="49"/>
+        <UsageCount Value="236"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../forms/aboutfm.pas"/>
+        <ComponentName Value="AboutForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="15"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="96"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../forms/hexeditfm.pas"/>
+        <ComponentName Value="HexEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HexEditFM"/>
+        <TopLine Value="40"/>
+        <CursorPos X="54" Y="67"/>
+        <UsageCount Value="196"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../forms/texteditfm.pas"/>
+        <ComponentName Value="TextEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="22"/>
+        <CursorPos X="79" Y="46"/>
+        <UsageCount Value="190"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../forms/pagemapfm.pas"/>
+        <ComponentName Value="PageMapForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PageMapFM"/>
+        <CursorPos X="15"/>
+        <UsageCount Value="190"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../forms/fatfm.pas"/>
+        <ComponentName Value="FatInspectorForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="54"/>
+        <CursorPos X="27" Y="60"/>
+        <UsageCount Value="190"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../forms/debuglogfm.pas"/>
+        <ComponentName Value="DebugLogForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DebugLogFM"/>
+        <TopLine Value="88"/>
+        <CursorPos X="60" Y="122"/>
+        <UsageCount Value="190"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../tests/btreetesthelper.pas"/>
+        <UnitName Value="BTreeTestHelper"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="39"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../lazarus/fpc/2.6.2/source/packages/hash/src/md5.pp"/>
+        <TopLine Value="33"/>
+        <CursorPos X="11" Y="44"/>
+        <UsageCount Value="22"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../../lazarus/lcl/comctrls.pp"/>
+        <UnitName Value="ComCtrls"/>
+        <TopLine Value="42"/>
+        <CursorPos X="3" Y="59"/>
+        <UsageCount Value="20"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-base/src/idea.pp"/>
+        <TopLine Value="55"/>
+        <CursorPos Y="69"/>
+        <UsageCount Value="3"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/packages/fcl-base/src/blowfish.pp"/>
+        <UnitName Value="BlowFish"/>
+        <TopLine Value="25"/>
+        <CursorPos X="3" Y="49"/>
+        <UsageCount Value="2"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../logging.pas"/>
+        <UnitName Value="Logging"/>
+        <TopLine Value="55"/>
+        <CursorPos X="11" Y="71"/>
+        <UsageCount Value="48"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="../../crypto/crypto.pas"/>
+        <UnitName Value="Crypto"/>
+        <TopLine Value="327"/>
+        <CursorPos X="3" Y="329"/>
+        <UsageCount Value="78"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/include/control.inc"/>
+        <TopLine Value="2701"/>
+        <CursorPos Y="2711"/>
+        <UsageCount Value="3"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../../ssl/rsa.pas"/>
+        <TopLine Value="529"/>
+        <CursorPos X="11" Y="546"/>
+        <UsageCount Value="3"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../../ssl/sslcontext.pas"/>
+        <UnitName Value="SSLContext"/>
+        <CursorPos X="39" Y="8"/>
+        <UsageCount Value="3"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../../ssl/ssl.pas"/>
+        <UnitName Value="SSL"/>
+        <TopLine Value="601"/>
+        <CursorPos X="5" Y="617"/>
+        <UsageCount Value="3"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../../sockets/socketsun.pas"/>
+        <UnitName Value="SocketsUN"/>
+        <TopLine Value="423"/>
+        <CursorPos X="43" Y="439"/>
+        <UsageCount Value="3"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../../sockets/advancedsocketsun.pas"/>
+        <UnitName Value="AdvancedSocketsUN"/>
+        <TopLine Value="675"/>
+        <CursorPos X="22" Y="692"/>
+        <UsageCount Value="3"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../../crypto/diffiehellman.pas"/>
+        <UnitName Value="DiffieHellman"/>
+        <TopLine Value="75"/>
+        <CursorPos X="84" Y="92"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="../../sockets/sslsocketsun.pas"/>
+        <UnitName Value="SSLSocketsUN"/>
+        <TopLine Value="90"/>
+        <CursorPos X="21" Y="116"/>
+        <UsageCount Value="2"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <TopLine Value="845"/>
+        <CursorPos Y="861"/>
+        <UsageCount Value="2"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="../../crypto/cryptoutils.pas"/>
+        <UnitName Value="CryptoUtils"/>
+        <TopLine Value="53"/>
+        <CursorPos Y="72"/>
+        <UsageCount Value="66"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/include/menuitem.inc"/>
+        <TopLine Value="71"/>
+        <CursorPos Y="89"/>
+        <UsageCount Value="1"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/include/toolbar.inc"/>
+        <TopLine Value="893"/>
+        <CursorPos Y="908"/>
+        <UsageCount Value="1"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="../forms/containerfm.pas"/>
+        <UnitName Value="ContainerFM"/>
+        <TopLine Value="128"/>
+        <CursorPos X="90" Y="131"/>
+        <UsageCount Value="10"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <TopLine Value="472"/>
+        <CursorPos X="25" Y="484"/>
+        <UsageCount Value="10"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="../../../NativeDragDrop/nativednd.pas"/>
+        <UnitName Value="NativeDnD"/>
+        <TopLine Value="96"/>
+        <CursorPos X="3" Y="116"/>
+        <UsageCount Value="10"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="../../../NativeDragDrop/dragdropgtk2.pas"/>
+        <UnitName Value="DragDropGtk2"/>
+        <TopLine Value="52"/>
+        <CursorPos X="20" Y="52"/>
+        <UsageCount Value="10"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <TopLine Value="490"/>
+        <CursorPos X="115" Y="519"/>
+        <UsageCount Value="14"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="/usr/share/fpcsrc/2.6.2/rtl/objpas/sysutils/sysstrh.inc"/>
+        <TopLine Value="109"/>
+        <CursorPos X="10" Y="124"/>
+        <UsageCount Value="7"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="../../../src/lazarus-1.2fixes/lcl/interfaces/gtk3/gtk3defines.inc"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="18"/>
+        <CursorPos X="2" Y="41"/>
+        <UsageCount Value="10"/>
+      </Unit37>
+    </Units>
+    <JumpHistory Count="3" HistoryIndex="2">
+      <Position1>
+        <Filename Value="../forms/fileencryptorfm.pas"/>
+        <Caret Line="125" Column="59" TopLine="105"/>
+      </Position1>
+      <Position2>
+        <Filename Value="../forms/fileencryptorfm.pas"/>
+        <Caret Line="9" Column="17"/>
+      </Position2>
+      <Position3>
+        <Filename Value="../forms/fileencryptorfm.pas"/>
+        <Caret Line="426" TopLine="390"/>
+      </Position3>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="Self.FOperation"/>
+      </Item1>
+    </Watches>
+  </Debugging>
+</CONFIG>
