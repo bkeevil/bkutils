@@ -287,6 +287,7 @@ procedure TLogFileListener.Message(Dispatcher: TLogDispatcher; MessageType: TLog
 begin
   inherited Message(Dispatcher, MessageType, Message);
   Writeln(FFile,LogMessageString(Dispatcher,MessageType,Message));
+  System.Flush(FFile);
 end;
 
 { TLogCRTListener }
@@ -294,11 +295,13 @@ end;
 procedure TLogCRTListener.Message(Dispatcher: TLogDispatcher; MessageType: TLogMessageType; Message: String);
 begin
   case MessageType of
-    mtInfo  : TextColor(LightGray);
-    mtDebug : TextColor(DarkGray);
+    mtInfo  : TextColor(LightCyan);
+    mtDebug : TextColor(LightGray);
+    mtWarning: TextColor(Yellow);
     mtError : TextColor(Red);
   end;
   Writeln(LogMessageString(Dispatcher,MessageType,Message));
+  TextColor(LightGray);
   inherited Message(Dispatcher, MessageType, Message);
 end;
 
