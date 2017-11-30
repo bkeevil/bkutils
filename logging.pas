@@ -2,8 +2,6 @@ unit Logging;
 
 {$mode objfpc}{$H+}
 
-{$DEFINE DEBUG}
-
 interface
 
 uses
@@ -18,6 +16,7 @@ type
 
 const
   ALL_LOG_MESSAGE_TYPES = [mtInfo, mtWarning, mtDebug, mtError];
+
   MESSAGE_TYPE_STRINGS: array[TLogMessageType] of String = ('INFO','WARNING','DEBUG','ERROR');
 
 type
@@ -143,7 +142,7 @@ begin
   else
     D := '';
   M := Message;
-  S := Format('%-5s %-12s %s',[T,D,M]);
+  S := Format('%-15s %-5s %-12s %s',[DateToStr(Now),T,D,M]);
   Result := S;
 end;
 
@@ -166,11 +165,7 @@ end;
 constructor TLogDispatcher.Create(AName: String);
 begin
   FEnabled := True;
-  {$IFDEF DEBUG}
   FFilter := [mtInfo, mtDebug, mtWarning, mtError];
-  {$ELSE}
-  FFilter := [mtInfo, mtWarning, mtError];
-  {$ENDIF}
   FName := AName;
 end;
 
@@ -298,9 +293,9 @@ end;
 procedure TLogCRTListener.Message(Dispatcher: TLogDispatcher; MessageType: TLogMessageType; Message: String);
 begin
   case MessageType of
-    mtInfo: TextColor(LightGray);
-    mtDebug: TextColor(DarkGray);
-    mtError: TextColor(Red);
+    mtInfo  : TextColor(LightGray);
+    mtDebug : TextColor(DarkGray);
+    mtError : TextColor(Red);
   end;
   Writeln(LogMessageString(Dispatcher,MessageType,Message));
   inherited Message(Dispatcher, MessageType, Message);
