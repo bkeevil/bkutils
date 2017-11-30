@@ -16,6 +16,7 @@ type
 
 const
   ALL_LOG_MESSAGE_TYPES = [mtInfo, mtWarning, mtDebug, mtError];
+  DEFAULT_LOG_MESSAGE_TYPES = [mtInfo, mtWarning, mtError];
 
   MESSAGE_TYPE_STRINGS: array[TLogMessageType] of String = ('INFO','WARNING','DEBUG','ERROR');
 
@@ -142,7 +143,7 @@ begin
   else
     D := '';
   M := Message;
-  S := Format('%-15s %-5s %-12s %s',[DateToStr(Now),T,D,M]);
+  S := Format('%-18s [%-8s] (%-12s) %s',[DateTimeToStr(Now),T,D,M]);
   Result := S;
 end;
 
@@ -238,7 +239,7 @@ constructor TLogListener.Create;
 begin
   inherited Create;
   FEnabled := True;
-  FTypeFilter := ALL_LOG_MESSAGE_TYPES;
+  FTypeFilter := DEFAULT_LOG_MESSAGE_TYPES;
   LogListeners.Add(Self);
 end;
 
