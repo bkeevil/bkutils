@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="9"/>
+    <Version Value="10"/>
     <BuildModes Active="Default"/>
     <Units Count="3">
       <Unit0>
         <Filename Value="rbtreetest.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="rbtreetest"/>
         <EditorIndex Value="2"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="58" Y="18"/>
+        <CursorPos X="26" Y="16"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -21,42 +18,33 @@
         <ComponentName Value="BinaryTreeForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="binarytreefm"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="285"/>
-        <CursorPos X="1" Y="299"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="35" Y="98"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="../rbtree.pas"/>
-        <UnitName Value="rbtree"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="445"/>
+        <TopLine Value="447"/>
         <CursorPos X="21" Y="471"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="0"/>
-    </General>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="../forms/binarytreefm.pas"/>
         <Caret Line="79" Column="27" TopLine="53"/>
       </Position1>
       <Position2>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="18" Column="66" TopLine="1"/>
+        <Caret Line="18" Column="66"/>
       </Position2>
       <Position3>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="13" Column="24" TopLine="1"/>
+        <Caret Line="13" Column="24"/>
       </Position3>
       <Position4>
         <Filename Value="../forms/binarytreefm.pas"/>
@@ -68,7 +56,7 @@
       </Position5>
       <Position6>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="16" Column="3" TopLine="1"/>
+        <Caret Line="16" Column="3"/>
       </Position6>
       <Position7>
         <Filename Value="../forms/binarytreefm.pas"/>
@@ -120,7 +108,7 @@
       </Position18>
       <Position19>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="301" Column="1" TopLine="287"/>
+        <Caret Line="301" TopLine="287"/>
       </Position19>
       <Position20>
         <Filename Value="../forms/binarytreefm.pas"/>
@@ -128,7 +116,7 @@
       </Position20>
       <Position21>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="299" Column="1" TopLine="286"/>
+        <Caret Line="299" TopLine="286"/>
       </Position21>
       <Position22>
         <Filename Value="../forms/binarytreefm.pas"/>
@@ -136,9 +124,16 @@
       </Position22>
       <Position23>
         <Filename Value="../forms/binarytreefm.pas"/>
-        <Caret Line="299" Column="1" TopLine="285"/>
+        <Caret Line="299" TopLine="285"/>
       </Position23>
+      <Position24>
+        <Filename Value="rbtreetest.lpr"/>
+        <Caret Line="18" Column="58"/>
+      </Position24>
+      <Position25>
+        <Filename Value="../forms/binarytreefm.pas"/>
+        <Caret Line="299" TopLine="285"/>
+      </Position25>
     </JumpHistory>
   </ProjectSession>
-  <EditorMacros Count="0"/>
 </CONFIG>

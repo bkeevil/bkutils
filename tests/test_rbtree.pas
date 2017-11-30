@@ -18,6 +18,7 @@ type
 
   TTRBTree= class(TTestCase)
   private
+    function CompareFunc(Data1, Data2: Pointer): Integer;
   protected
     Tree: TRBTree;
     C: Integer;
@@ -28,7 +29,7 @@ type
     procedure _SequentialInsert(Count: Integer; Descending: Boolean = False);
     procedure _SequentialRemove(Count: Integer; Descending: Boolean);
     procedure _RandomInsert(Count: Integer);
-    procedure OnCheckData(Data: Pointer);
+    procedure OnCheckData(Data: Pointer; var Abort: Boolean);
   published
     procedure CreateDestroy;
     procedure SequentialInsert;
@@ -41,7 +42,7 @@ type
 
 implementation
 
-function CompareFunc(Data1, Data2: Pointer): Integer;
+function TTRBTree.CompareFunc(Data1, Data2: Pointer): Integer;
 begin
   if PRBTreeData(Data1)^.Key > PRBTreeData(Data2)^.Key then
     Result := 1
@@ -262,7 +263,7 @@ begin
     end;
 end;
 
-procedure TTRBTree.OnCheckData(Data: Pointer);
+procedure TTRBTree.OnCheckData(Data: Pointer; var Abort: Boolean);
 begin
   inc(C);
   AssertEquals('Key and data should be equal',PRBTreeData(Data)^.Key,PRBTreeData(Data)^.Data);

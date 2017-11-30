@@ -7,15 +7,13 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, binarytreefm
-  { you can add units after this };
+  Forms, binarytreefm;
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
   Application.Initialize;
-  Application.CreateForm(TBinaryTreeForm,BinaryTreeForm);
   Application.Run;
 end.
 

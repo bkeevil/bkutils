@@ -15,10 +15,7 @@ unit rbtree;
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-  DOCUMENTATION IS HERE:
-  http://prognosti.com/index.php?option=com_content&view=article&id=15
-
-  For assistance or support: bkeevil@prognosti.com }
+  For assistance or support: me@bondkeevil.ca }
 
 {$mode objfpc}{$H+}
 
@@ -77,7 +74,7 @@ type
       procedure Clear;
       function GetItem(Index: Integer): Pointer;
       function CalcRecordCount: Integer;
-      property Count: Integer read FRecordCount;
+      property RecordCount: Integer read FRecordCount;
       property DataSize: Integer read FDataSize;
   end;
 
