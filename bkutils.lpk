@@ -8,6 +8,9 @@
       <SearchPaths>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
+      <CodeGeneration>
+        <SmartLinkUnit Value="True"/>
+      </CodeGeneration>
     </CompilerOptions>
     <Files Count="10">
       <Item1>
@@ -53,10 +56,10 @@
     </Files>
     <RequiredPkgs Count="2">
       <Item1>
-        <PackageName Value="crytopkg"/>
+        <PackageName Value="FCL"/>
       </Item1>
       <Item2>
-        <PackageName Value="FCL"/>
+        <PackageName Value="crytopkg"/>
       </Item2>
     </RequiredPkgs>
     <UsageOptions>
