@@ -270,6 +270,7 @@ end;
 
 constructor TLogFileListener.Create(Filename: String; Append: Boolean);
 begin
+  inherited Create;
   System.Assign(FFile,Filename);
   if Append and FileExists(Filename) then
     System.Append(FFile)
