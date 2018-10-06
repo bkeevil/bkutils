@@ -4,11 +4,11 @@
 
 unit bkutils;
 
+{$warn 5023 off : no warning about unused units}
 interface
 
 uses
-  Base32, btreefile, ErrorMsg, Files, Logging, rbtree, Buffers, TempFiles, 
-  streamutils, passwordman, LazarusPackageIntf;
+  Base32, ErrorMsg, Logging, rbtree, Buffers, TempFiles, LazarusPackageIntf;
 
 implementation
 

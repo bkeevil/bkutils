@@ -166,7 +166,7 @@ end;
 constructor TLogDispatcher.Create(AName: String);
 begin
   FEnabled := True;
-  FFilter := [mtInfo, mtDebug, mtWarning, mtError];
+  FFilter := DEFAULT_LOG_MESSAGE_TYPES;
   FName := AName;
 end;
 

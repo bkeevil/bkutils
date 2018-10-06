@@ -12,55 +12,36 @@
         <SmartLinkUnit Value="True"/>
       </CodeGeneration>
     </CompilerOptions>
-    <Files Count="10">
+    <Files Count="6">
       <Item1>
         <Filename Value="base32.pas"/>
         <UnitName Value="Base32"/>
       </Item1>
       <Item2>
-        <Filename Value="btreefile.pas"/>
-        <UnitName Value="btreefile"/>
-      </Item2>
-      <Item3>
         <Filename Value="errormsg.pas"/>
         <UnitName Value="ErrorMsg"/>
-      </Item3>
-      <Item4>
-        <Filename Value="files.pas"/>
-        <UnitName Value="Files"/>
-      </Item4>
-      <Item5>
+      </Item2>
+      <Item3>
         <Filename Value="logging.pas"/>
         <UnitName Value="Logging"/>
-      </Item5>
-      <Item6>
+      </Item3>
+      <Item4>
         <Filename Value="rbtree.pas"/>
         <UnitName Value="rbtree"/>
-      </Item6>
-      <Item7>
+      </Item4>
+      <Item5>
         <Filename Value="buffers.pas"/>
         <UnitName Value="Buffers"/>
-      </Item7>
-      <Item8>
+      </Item5>
+      <Item6>
         <Filename Value="tempfiles.pas"/>
         <UnitName Value="TempFiles"/>
-      </Item8>
-      <Item9>
-        <Filename Value="streamutils.pas"/>
-        <UnitName Value="streamutils"/>
-      </Item9>
-      <Item10>
-        <Filename Value="passwordman.pas"/>
-        <UnitName Value="passwordman"/>
-      </Item10>
+      </Item6>
     </Files>
-    <RequiredPkgs Count="2">
+    <RequiredPkgs Count="1">
       <Item1>
         <PackageName Value="FCL"/>
       </Item1>
-      <Item2>
-        <PackageName Value="crytopkg"/>
-      </Item2>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>
