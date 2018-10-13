@@ -12,6 +12,7 @@
         <SmartLinkUnit Value="True"/>
       </CodeGeneration>
     </CompilerOptions>
+    <Version Minor="1"/>
     <Files Count="14">
       <Item1>
         <Filename Value="base32.pas"/>
