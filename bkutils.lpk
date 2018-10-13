@@ -12,7 +12,7 @@
         <SmartLinkUnit Value="True"/>
       </CodeGeneration>
     </CompilerOptions>
-    <Files Count="6">
+    <Files Count="14">
       <Item1>
         <Filename Value="base32.pas"/>
         <UnitName Value="Base32"/>
@@ -37,11 +37,49 @@
         <Filename Value="tempfiles.pas"/>
         <UnitName Value="TempFiles"/>
       </Item6>
+      <Item7>
+        <Filename Value="alarms.pas"/>
+        <UnitName Value="alarms"/>
+      </Item7>
+      <Item8>
+        <Filename Value="passwordman.pas"/>
+        <UnitName Value="passwordman"/>
+      </Item8>
+      <Item9>
+        <Filename Value="streamutils.pas"/>
+        <UnitName Value="streamutils"/>
+      </Item9>
+      <Item10>
+        <Filename Value="binarytree.pas"/>
+        <UnitName Value="binarytree"/>
+      </Item10>
+      <Item11>
+        <Filename Value="btree.pas"/>
+        <UnitName Value="btree"/>
+      </Item11>
+      <Item12>
+        <Filename Value="crypto.pas"/>
+        <UnitName Value="Crypto"/>
+      </Item12>
+      <Item13>
+        <Filename Value="diffiehellman.pas"/>
+        <UnitName Value="DiffieHellman"/>
+      </Item13>
+      <Item14>
+        <Filename Value="rand.pas"/>
+        <UnitName Value="Rand"/>
+      </Item14>
     </Files>
-    <RequiredPkgs Count="1">
+    <RequiredPkgs Count="3">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="LazUtils"/>
       </Item1>
+      <Item2>
+        <PackageName Value="dcpcrypt"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>

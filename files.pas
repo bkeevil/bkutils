@@ -13,7 +13,7 @@ interface
 { TODO : A flat record file handle }
 
 uses
-  Classes, SysUtils, Logging, Crypto, CryptoUtils;
+  Classes, SysUtils, Logging, Crypto, DCPcrypt2;
 
 const
   PAGE_SIZE                = 4096;  // Must be multiple of 128 for encryption to work
@@ -478,7 +478,7 @@ type
       FAutoPack: Boolean;
       FDeletingPage: TPageNum;
       FPassword: String;
-      FCipher: TCipher;
+      FCipher: TDCP_BlockCipher;
       FKey: TFileKey;
       FEncrypting: Boolean;   // TODO: Get rid of this and use FOperation instead
       FHandle: THandle;
@@ -540,7 +540,7 @@ type
       function BeginOperation(Operation: TFileOperation): Boolean;
       procedure EndOperation;
       //
-      property Cipher: TCipher read FCipher;
+      property Cipher: TDCP_BlockCipher read FCipher;
     public
       constructor Create;
       destructor Destroy; override;

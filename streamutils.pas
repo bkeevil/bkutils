@@ -9,22 +9,29 @@ uses
 
 procedure SaveStringToStreamByte(Str: String; Stream: TStream);
 function LoadStringFromStreamByte(Stream: TStream): String;
+procedure SaveUTF8StringToStreamByte(Str: UTF8String; Stream: TStream);
+function LoadUTF8StringFromStreamByte(Stream: TStream): UTF8String;
 procedure SaveStringToStreamWord(Str: String; Stream: TStream);
 function LoadStringFromStreamWord(Stream: TStream): String;
+procedure SaveUTF8StringToStreamWord(Str: UTF8String; Stream: TStream);
+function LoadUTF8StringFromStreamWord(Stream: TStream): UTF8String;
 procedure SaveStringToStreamInt(Str: String; Stream: TStream);
 function LoadStringFromStreamInt(Stream: TStream): String;
+procedure SaveUTF8StringToStreamInt(Str: UTF8String; Stream: TStream);
+function LoadUTF8StringFromStreamInt(Stream: TStream): UTF8String;
 procedure SaveStringToStream(Str: String; Stream: TStream);
 function LoadStringFromStream(Stream: TStream): String;
+procedure SaveUTF8StringToStream(Str: UTF8String; Stream: TStream);
+function LoadUTF8StringFromStream(Stream: TStream): UTF8String;
+
 procedure SaveStringsToStream(Strings: TStrings; Stream: TStream);
 procedure LoadStringsFromStream(Strings: TStrings; Stream: TStream);
-procedure EncryptStream(InStream, OutStream: TStream; Password: String);
-procedure DecryptStream(InStream, OutStream: TStream; Password: String);
 
 
 implementation
 
 uses
-  Crypto, CryptoUtils;
+  LazUTF8;
 
 procedure SaveStringToStreamByte(Str: String; Stream: TStream);
 var
@@ -45,6 +52,27 @@ begin
     Stream.Read(PChar(Result)^,L);
 end;
 
+procedure SaveUTF8StringToStreamByte(Str: UTF8String; Stream: TStream);
+var
+  L: Byte;
+begin
+  L := UTF8Length(Str);
+  Stream.Write(L,SizeOf(Byte));
+  Stream.Write(PChar(Str)^,L);
+end;
+
+function LoadUTF8StringFromStreamByte(Stream: TStream): UTF8String;
+var
+  S: UTF8String;
+  L: Byte;
+begin
+  Stream.Read(L,SizeOf(Byte));
+  SetLength(S,L);
+  if L > 0 then
+    Stream.Read(PChar(S)^,L);
+  Result := S;
+end;
+
 procedure SaveStringToStreamWord(Str: String; Stream: TStream);
 var
   L: Word;
@@ -57,6 +85,27 @@ end;
 function LoadStringFromStreamWord(Stream: TStream): String;
 var
   S: String;
+  L: Word;
+begin
+  Stream.Read(L,SizeOf(Word));
+  SetLength(S,L);
+  if L > 0 then
+    Stream.Read(PChar(S)^,L);
+  Result := S;
+end;
+
+procedure SaveUTF8StringToStreamWord(Str: UTF8String; Stream: TStream);
+var
+  L: Word;
+begin
+  L := UTF8Length(Str);
+  Stream.Write(L,SizeOf(Word));
+  Stream.Write(PChar(Str)^,L);
+end;
+
+function LoadUTF8StringFromStreamWord(Stream: TStream): UTF8String;
+var
+  S: UTF8String;
   L: Word;
 begin
   Stream.Read(L,SizeOf(Word));
@@ -85,6 +134,27 @@ begin
     Stream.Read(PChar(Result)^,L);
 end;
 
+procedure SaveUTF8StringToStreamInt(Str: UTF8String; Stream: TStream);
+var
+  L: Integer;
+begin
+  L := UTF8Length(Str);
+  Stream.Write(L,SizeOf(Integer));
+  Stream.Write(PChar(Str)^,L);
+end;
+
+function LoadUTF8StringFromStreamInt(Stream: TStream): UTF8String;
+var
+  S: UTF8String;
+  L: Integer;
+begin
+  Stream.Read(L,SizeOf(Integer));
+  SetLength(S,L);
+  if L > 0 then
+    Stream.Read(PChar(S)^,L);
+  Result := S;
+end;
+
 procedure SaveStringToStream(Str: String; Stream: TStream);
 begin
   SaveStringToStreamWord(Str,Stream);
@@ -93,6 +163,16 @@ end;
 function LoadStringFromStream(Stream: TStream): String;
 begin
   Result := LoadStringFromStreamWord(Stream);
+end;
+
+procedure SaveUTF8StringToStream(Str: UTF8String; Stream: TStream);
+begin
+  SaveUTF8StringToStreamWord(Str,Stream);
+end;
+
+function LoadUTF8StringFromStream(Stream: TStream): UTF8String;
+begin
+  Result := LoadUTF8StringFromStreamWord(Stream);
 end;
 
 procedure SaveStringsToStream(Strings: TStrings; Stream: TStream);
@@ -123,43 +203,6 @@ begin
         S := LoadStringFromStream(Stream);
         Strings.Add(S);
       end;
-end;
-
-procedure EncryptStream(InStream, OutStream: TStream; Password: String);
-var
-  Key: TKey256;
-  Cipher: TCipher;
-begin
-  Key := SHA256String(Password);
-  OutStream.Write(Key,SizeOf(Key));
-  Cipher := CreateCipher(caRijndael,@Key,256);
-  try
-    Cipher.InitMode(cmCTR,nil);
-    Cipher.EncryptStream(InStream,OutStream);
-  finally
-    Cipher.Free;
-  end;
-end;
-
-procedure DecryptStream(InStream, OutStream: TStream; Password: String);
-var
-  Key1,Key2: TKey256;
-  Cipher: TCipher;
-begin
-  Key1 := SHA256String(Password);
-  InStream.Read(Key2,SizeOf(Key2));
-  if CompareMem(@Key1,@Key2,SizeOf(TKey256)) = 0 then
-    begin
-      Cipher := CreateCipher(caRijndael,@Key1,256);
-      try
-        Cipher.InitMode(cmCTR,nil);
-        Cipher.DecryptStream(InStream,OutStream);
-      finally
-        Cipher.Free;
-      end;
-    end
-  else
-    raise ECipher.Create('Invalid password');
 end;
 
 end.

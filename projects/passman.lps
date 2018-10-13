@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="7">
+    <Units Count="32">
       <Unit0>
         <Filename Value="passman.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -11,7 +11,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="40"/>
       </Unit0>
       <Unit1>
         <Filename Value="../forms/passmanfm.pas"/>
@@ -19,9 +19,10 @@
         <ComponentName Value="PassManForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="29"/>
-        <CursorPos Y="40"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="181"/>
+        <CursorPos X="94" Y="181"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,167 +33,380 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PassManParamsFM"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="23"/>
-        <CursorPos Y="31"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="24"/>
+        <CursorPos X="9" Y="53"/>
+        <UsageCount Value="40"/>
       </Unit2>
       <Unit3>
-        <Filename Value="../passwordman.pas"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="265"/>
-        <CursorPos X="45" Y="267"/>
-        <UsageCount Value="10"/>
+        <Filename Value="../forms/createpasswordfm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CreatePasswordDialog"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="45"/>
+        <CursorPos X="90" Y="58"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="/usr/share/lazarus/1.6.4/lcl/grids.pas"/>
-        <UnitName Value="Grids"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="1628"/>
-        <CursorPos X="16" Y="1641"/>
-        <UsageCount Value="10"/>
+        <Filename Value="../passwordman.pas"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="286"/>
+        <CursorPos Y="301"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="/usr/share/fpcsrc/3.0.2/rtl/objpas/sysutils/datih.inc"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="156"/>
-        <CursorPos X="10" Y="152"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <Filename Value="/usr/share/lazarus/1.6.4/lcl/grids.pas"/>
+        <UnitName Value="Grids"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1628"/>
+        <CursorPos X="16" Y="1641"/>
+        <UsageCount Value="8"/>
       </Unit5>
       <Unit6>
-        <Filename Value="../streamutils.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="100"/>
-        <CursorPos X="18" Y="125"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <Filename Value="/usr/share/fpcsrc/3.0.2/rtl/objpas/sysutils/datih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="156"/>
+        <CursorPos X="10" Y="152"/>
+        <UsageCount Value="8"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="../streamutils.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="95"/>
+        <CursorPos Y="122"/>
+        <UsageCount Value="19"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="/usr/share/lazarus/1.8.2/lcl/dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="658"/>
+        <CursorPos X="20" Y="673"/>
+        <UsageCount Value="10"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/dcpcrypt2.pas"/>
+        <UnitName Value="DCPcrypt2"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="71"/>
+        <CursorPos X="90" Y="79"/>
+        <UsageCount Value="16"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/dcpconst.pas"/>
+        <UnitName Value="DCPconst"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos X="16" Y="72"/>
+        <UsageCount Value="13"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/dcpblockciphers.pas"/>
+        <UnitName Value="DCPblockciphers"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="3" Y="36"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/dcpbase64.pas"/>
+        <UnitName Value="DCPbase64"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="84"/>
+        <CursorPos X="51" Y="93"/>
+        <UsageCount Value="17"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../crypto/cryptoutils.pas"/>
+        <UnitName Value="CryptoUtils"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="20"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../../crypto/rand.pas"/>
+        <UnitName Value="Rand"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="8"/>
+        <UsageCount Value="13"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../../crypto/crypto.pas"/>
+        <UnitName Value="Crypto"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="59"/>
+        <CursorPos X="3" Y="74"/>
+        <UsageCount Value="13"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="../../crypto/diffiehellman.pas"/>
+        <UnitName Value="DiffieHellman"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="28" Y="8"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Hashes/dcphaval.pas"/>
+        <UnitName Value="DCPhaval"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <CursorPos X="18" Y="17"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Ciphers/dcpmisty1.pas"/>
+        <UnitName Value="DCPmisty1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="32"/>
+        <CursorPos X="52" Y="61"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="../../crypto/Ciphers/dcpice.pas"/>
+        <UnitName Value="DCPice"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="23"/>
+        <CursorPos X="3" Y="47"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../../crypto/Ciphers/dcpblowfish.pas"/>
+        <UnitName Value="DCPblowfish"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../../crypto/dcpblockciphers.pas"/>
+        <UnitName Value="DCPblockciphers"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="10" Y="17"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Hashes/dcpmd4.pas"/>
+        <UnitName Value="DCPmd4"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="3" Y="34"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Ciphers/dcprc4.pas"/>
+        <UnitName Value="DCPrc4"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="24"/>
+        <CursorPos X="3" Y="24"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Ciphers/dcpblowfish.pas"/>
+        <UnitName Value="DCPblowfish"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="30"/>
+        <CursorPos X="17" Y="247"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../../../../.lazarus/onlinepackagemanager/packages/dcpcrypt-2.0.4.1/Ciphers/dcptwofish.pas"/>
+        <UnitName Value="DCPtwofish"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <CursorPos X="3" Y="46"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="../rand.pas"/>
+        <UnitName Value="Rand"/>
+        <CursorPos X="34"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="../crypto.pas"/>
+        <UnitName Value="Crypto"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="235"/>
+        <CursorPos X="18" Y="250"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="../files.pas"/>
+        <UnitName Value="Files"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="2869"/>
+        <CursorPos X="23" Y="2883"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="../tempfiles.pas"/>
+        <UnitName Value="TempFiles"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="11"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="../forms/securityfm.pas"/>
+        <ComponentName Value="SecurityDlg"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="../forms/passwdfm.pas"/>
+        <ComponentName Value="PasswordForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PasswdFM"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit31>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="138" TopLine="123"/>
+        <Caret Line="213" TopLine="189"/>
       </Position1>
       <Position2>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="134" Column="77" TopLine="123"/>
+        <Caret Line="202" TopLine="189"/>
       </Position2>
       <Position3>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="69" Column="45" TopLine="63"/>
+        <Caret Line="185" TopLine="170"/>
       </Position3>
       <Position4>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="139" Column="28" TopLine="129"/>
+        <Caret Line="208" TopLine="189"/>
       </Position4>
       <Position5>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="140" Column="13" TopLine="126"/>
+        <Caret Line="176" Column="84" TopLine="170"/>
       </Position5>
       <Position6>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="170" Column="27" TopLine="155"/>
+        <Caret Line="177" Column="84" TopLine="171"/>
       </Position6>
       <Position7>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="168" Column="14" TopLine="153"/>
+        <Caret Line="178" Column="84" TopLine="172"/>
       </Position7>
       <Position8>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="173" Column="5" TopLine="165"/>
+        <Caret Line="177" Column="84" TopLine="171"/>
       </Position8>
       <Position9>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="88" TopLine="73"/>
+        <Caret Line="178" Column="84" TopLine="172"/>
       </Position9>
       <Position10>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="130" Column="20" TopLine="116"/>
+        <Caret Line="179" Column="84" TopLine="173"/>
       </Position10>
       <Position11>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="172" Column="22" TopLine="143"/>
+        <Caret Line="180" Column="84" TopLine="174"/>
       </Position11>
       <Position12>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="171" Column="22" TopLine="142"/>
+        <Caret Line="181" Column="84" TopLine="175"/>
       </Position12>
       <Position13>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="170" Column="22" TopLine="141"/>
+        <Caret Line="182" Column="84" TopLine="176"/>
       </Position13>
       <Position14>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="140" TopLine="121"/>
+        <Caret Line="183" Column="84" TopLine="177"/>
       </Position14>
       <Position15>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="72" Column="47" TopLine="61"/>
+        <Caret Line="184" Column="84" TopLine="178"/>
       </Position15>
       <Position16>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="74" Column="47" TopLine="63"/>
+        <Caret Line="185" Column="84" TopLine="179"/>
       </Position16>
       <Position17>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="145" Column="49" TopLine="142"/>
+        <Caret Line="184" Column="84" TopLine="178"/>
       </Position17>
       <Position18>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="180" Column="20" TopLine="162"/>
+        <Caret Line="185" Column="84" TopLine="179"/>
       </Position18>
       <Position19>
-        <Filename Value="../forms/passmanparamsfm.pas"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="186" Column="84" TopLine="180"/>
       </Position19>
       <Position20>
-        <Filename Value="../forms/passmanparamsfm.pas"/>
-        <Caret Line="40" Column="35" TopLine="13"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="187" Column="84" TopLine="181"/>
       </Position20>
       <Position21>
-        <Filename Value="../forms/passmanparamsfm.pas"/>
-        <Caret Line="45" Column="18" TopLine="19"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="188" Column="84" TopLine="182"/>
       </Position21>
       <Position22>
-        <Filename Value="../passwordman.pas"/>
-        <Caret Line="282" Column="53" TopLine="264"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="189" Column="84" TopLine="183"/>
       </Position22>
       <Position23>
-        <Filename Value="../streamutils.pas"/>
-        <Caret Line="118" TopLine="94"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="190" Column="84" TopLine="184"/>
       </Position23>
       <Position24>
-        <Filename Value="../streamutils.pas"/>
-        <Caret Line="108" Column="11" TopLine="84"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="191" Column="84" TopLine="185"/>
       </Position24>
       <Position25>
-        <Filename Value="../streamutils.pas"/>
-        <Caret Line="115" Column="13" TopLine="104"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="192" Column="84" TopLine="186"/>
       </Position25>
       <Position26>
-        <Filename Value="../streamutils.pas"/>
-        <Caret Line="120" Column="14" TopLine="105"/>
+        <Filename Value="../forms/passmanfm.pas"/>
+        <Caret Line="191" Column="84" TopLine="185"/>
       </Position26>
       <Position27>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="121" Column="76" TopLine="119"/>
+        <Caret Line="190" Column="84" TopLine="184"/>
       </Position27>
       <Position28>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="155" Column="5" TopLine="154"/>
+        <Caret Line="189" Column="84" TopLine="183"/>
       </Position28>
       <Position29>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="41" TopLine="29"/>
+        <Caret Line="188" Column="84" TopLine="182"/>
       </Position29>
       <Position30>
         <Filename Value="../forms/passmanfm.pas"/>
-        <Caret Line="40" TopLine="29"/>
+        <Caret Line="187" Column="84" TopLine="181"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

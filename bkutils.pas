@@ -8,7 +8,9 @@ unit bkutils;
 interface
 
 uses
-  Base32, ErrorMsg, Logging, rbtree, Buffers, TempFiles, LazarusPackageIntf;
+  Base32, ErrorMsg, Logging, rbtree, Buffers, TempFiles, alarms, passwordman, 
+  streamutils, binarytree, btree, Crypto, DiffieHellman, Rand, 
+  LazarusPackageIntf;
 
 implementation
 

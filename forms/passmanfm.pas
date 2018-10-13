@@ -6,41 +6,65 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus, Grids,
-  ValEdit, ExtCtrls, ComCtrls, PasswordMan;
+  ValEdit, ExtCtrls, ComCtrls, ActnList, StdActns, DBGrids, DbCtrls, StdCtrls,
+  DBActns, PasswordMan, db, memds;
 
 type
 
   { TPassManForm }
 
   TPassManForm = class(TForm)
+    CoolBar: TCoolBar;
+    DataSetCancel1: TDataSetCancel;
+    DataSetDelete1: TDataSetDelete;
+    DataSetEdit1: TDataSetEdit;
+    DataSetFirst1: TDataSetFirst;
+    DataSetInsert1: TDataSetInsert;
+    DataSetLast1: TDataSetLast;
+    DataSetNext1: TDataSetNext;
+    DataSetPost1: TDataSetPost;
+    DataSetPrior1: TDataSetPrior;
+    DataSetRefresh1: TDataSetRefresh;
+    DataSource: TDataSource;
+    DBGrid: TDBGrid;
+    DBNavigator: TDBNavigator;
+    FileClose: TAction;
+    FileSave: TAction;
+    FileNew: TAction;
+    ActionList: TActionList;
+    FileExit: TFileExit;
+    FileOpen: TFileOpen;
+    FileSaveAs: TFileSaveAs;
+    CloseItm: TMenuItem;
+    FileToolbar: TToolBar;
+    MemDataset: TMemDataset;
+    ExitToolbar: TToolBar;
+    ToolbarButtons: TImageList;
     MainMenu: TMainMenu;
     FileMenu: TMenuItem;
-    MenuItem2: TMenuItem;
-    ExitItm: TMenuItem;
-    OpenDialog: TOpenDialog;
-    SaveAsItm: TMenuItem;
-    SaveDialog: TSaveDialog;
-    SaveItm: TMenuItem;
     NewItm: TMenuItem;
     OpenItm: TMenuItem;
-    StringGrid: TStringGrid;
-    ToolBar1: TToolBar;
-    AddBtn: TToolButton;
-    DeleteBtn: TToolButton;
-    procedure AddBtnClick(Sender: TObject);
-    procedure DeleteBtnClick(Sender: TObject);
-    procedure ExitItmClick(Sender: TObject);
+    SaveItm: TMenuItem;
+    SaveAsItm: TMenuItem;
+    MenuDividerItm: TMenuItem;
+    ExitItm: TMenuItem;
+    DisabledButtons: TImageList;
+    FileNewBtn: TToolButton;
+    FileOpenBtn: TToolButton;
+    FileSaveBtn: TToolButton;
+    FileSaveAsBtn: TToolButton;
+    FileCloseBtn: TToolButton;
+    ExitBtn: TToolButton;
+    procedure DBGridEditButtonClick(Sender: TObject);
+    procedure DBGridMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure FileCloseAction(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure NewItmClick(Sender: TObject);
-    procedure OpenItmClick(Sender: TObject);
-    procedure SaveAsItmClick(Sender: TObject);
-    procedure SaveItmClick(Sender: TObject);
-    procedure StringGridButtonClick(Sender: TObject; aCol, aRow: Integer);
-  private
-    procedure InitRow(I: Integer);
-    function ValidateRow(I: Integer): Boolean;
-    { private declarations }
+    procedure FileNewAction(Sender: TObject);
+    procedure FileOpenAction(Sender: TObject);
+    procedure FileSaveAsAction(Sender: TObject);
+    procedure FileSaveAction(Sender: TObject);
+    procedure MemDatasetNewRecord(DataSet: TDataSet);
   public
     PassMan: TPasswordManager;
     procedure GridToPassman;
@@ -55,7 +79,7 @@ implementation
 {$R *.lfm}
 
 uses
-  PassManParamsFM;
+  PassManParamsFM, CreatePasswordFM;
 
 { TPassManForm }
 
@@ -64,28 +88,41 @@ begin
   PassMan := TPasswordManager.Create;
 end;
 
-procedure TPassManForm.ExitItmClick(Sender: TObject);
+procedure TPassManForm.DBGridEditButtonClick(Sender: TObject);
+var
+  P: String;
 begin
-  Close;
+  if DBGrid.SelectedField = MemDataset.FieldByName('ParamsField') then
+    begin
+      ParamsForm.ValueListEditor.Clear;
+      ParamsForm.ValueListEditor.Strings.Text := MemDataset.FieldByName('ParamsField').AsString;
+      if ParamsForm.ShowModal = mrOK then
+        begin
+          if MemDataset.State = dsBrowse then
+            MemDataset.Edit;
+          MemDataset.FieldByName('ParamsField').AsString := ParamsForm.ValueListEditor.Strings.Text;
+        end;
+    end
+  else
+  if DBGrid.SelectedField = MemDataset.FieldByName('PasswordField') then
+    begin
+      if CreatePasswordDlg(P) then
+        begin
+          if MemDataset.State = dsBrowse then
+            MemDataset.Edit;
+          MemDataset.FieldByName('PasswordField').AsString := P;
+        end;
+    end;
 end;
 
-procedure TPassManForm.InitRow(I: Integer);
+procedure TPassManForm.DBGridMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-  StringGrid.Cells[0,I] := '1';
-  StringGrid.Cells[3,I] := '0';
-  StringGrid.Cells[4,I] := DateTimeToStr(Now);
+  Entropy.MouseMove(X,Y);
 end;
 
-procedure TPassManForm.AddBtnClick(Sender: TObject);
+procedure TPassManForm.FileCloseAction(Sender: TObject);
 begin
-  StringGrid.RowCount := StringGrid.RowCount+1;
-  InitRow(StringGrid.RowCount - 1);
-end;
-
-procedure TPassManForm.DeleteBtnClick(Sender: TObject);
-begin
-  if StringGrid.Selection.Top > 0 then
-    StringGrid.DeleteRow(StringGrid.Selection.Top);
+  MemDataset.Close;
 end;
 
 procedure TPassManForm.FormDestroy(Sender: TObject);
@@ -93,93 +130,77 @@ begin
   PassMan.Free;
 end;
 
-procedure TPassManForm.NewItmClick(Sender: TObject);
+procedure TPassManForm.FileNewAction(Sender: TObject);
 begin
   Passman.Clear;
-  PassmanToGrid;
-  OpenDialog.Filename := '';
-  SaveDialog.Filename := '';
+  MemDataset.Clear;
+  FileOpen.Dialog.Filename := '';
+  FileSaveAs.Dialog.Filename := '';
 end;
 
-procedure TPassManForm.OpenItmClick(Sender: TObject);
+procedure TPassManForm.FileOpenAction(Sender: TObject);
 begin
-  if OpenDialog.Execute then
-    begin
-      PassMan.LoadFromFile(OpenDialog.Filename);
-      PassManToGrid;
-      SaveDialog.Filename := OpenDialog.Filename;
-    end;
+  PassMan.LoadFromFile(FileOpen.Dialog.Filename);
+  PassManToGrid;
+  FileSaveAs.Dialog.Filename := FileOpen.Dialog.Filename;
 end;
 
-procedure TPassManForm.SaveAsItmClick(Sender: TObject);
+procedure TPassManForm.FileSaveAsAction(Sender: TObject);
 begin
-  if SaveDialog.Execute then
-    begin
-      GridToPassMan;
-      PassManToGrid;
-      PassMan.SaveToFile(SaveDialog.Filename);
-      OpenDialog.Filename := SaveDialog.Filename;
-    end;
+  GridToPassMan;
+  PassManToGrid;
+  PassMan.SaveToFile(FileSaveAs.Dialog.Filename);
+  FileOpen.Dialog.Filename := FileSaveAs.Dialog.Filename;
 end;
 
-procedure TPassManForm.SaveItmClick(Sender: TObject);
+procedure TPassManForm.FileSaveAction(Sender: TObject);
 begin
-  if SaveDialog.Filename = '' then
+  if FileSaveAs.Dialog.Filename = '' then
     begin
-      if SaveDialog.Execute then
+      if FileSaveAs.Dialog.Execute then
         begin
           GridToPassMan;
           PassManToGrid;
-          PassMan.SaveToFile(SaveDialog.Filename);
+          PassMan.SaveToFile(FileSaveAs.Dialog.Filename);
         end;
     end
   else
     begin
       GridToPassMan;
       PassManToGrid;
-      PassMan.SaveToFile(SaveDialog.Filename);
+      PassMan.SaveToFile(FileSaveAs.Dialog.Filename);
     end;
 end;
 
-procedure TPassManForm.StringGridButtonClick(Sender: TObject; aCol, aRow: Integer);
+procedure TPassManForm.MemDatasetNewRecord(DataSet: TDataSet);
 begin
-  if aCol = 6 then
-    begin
-      ParamsForm.ValueListEditor.Clear;
-      ParamsForm.ValueListEditor.Strings.Text := StringGrid.Cells[6,aRow];
-      if ParamsForm.ShowModal = mrOK then
-        StringGrid.Cells[6,aRow] := ParamsForm.ValueListEditor.Strings.Text;
-    end;
-end;
-
-function TPassManForm.ValidateRow(I: Integer): Boolean;
-begin
-  Result := (StringGrid.Cells[0,I] > '') and
-            (StringGrid.Cells[1,I] > '') and
-            (StringGrid.Cells[2,I] > '') and
-            (StringGrid.Cells[3,I] > '');
+  MemDataset.FieldByName('LastActiveField').AsDateTime := Now;
+  MemDataset.FieldByName('EnabledField').AsBoolean := True;
+  MemDataset.FieldByName('AdminField').AsBoolean := False;
 end;
 
 procedure TPassManForm.GridToPassman;
 var
   I: Integer;
   O: TPasswordManagerAccount;
+  BM: TBookmark;
 begin
   PassMan.Clear;
-  for I := 1 to StringGrid.RowCount - 1 do
+  MemDataset.GetBookmark;
+  MemDataset.First;
+  while not MemDataset.EOF do
     begin
-      if ValidateRow(I) then
-        begin
-          O := TPasswordManagerAccount.Create(PassMan);
-          O.Enabled := StringGrid.Cells[0,I] = '1';
-          O.Username := StringGrid.Cells[1,I];
-          O.Password := StringGrid.Cells[2,I];
-          O.Admin := StringGrid.Cells[3,I] = '1';
-          O.LastActive := StrToDateTime(StringGrid.Cells[4,I]);
-          O.Description := StringGrid.Cells[5,I];
-          O.Params.Text := StringGrid.Cells[6,I];
-        end;
+      O := TPasswordManagerAccount.Create(PassMan);
+      O.Enabled     := MemDataset.FieldByName('EnabledField').AsBoolean;
+      O.Username    := MemDataset.FieldByName('UsernameField').AsString;
+      O.Password    := MemDataset.FieldByName('PasswordField').AsString;
+      O.Admin       := MemDataset.FieldByName('AdminField').AsBoolean;
+      O.LastActive  := MemDataset.FieldByName('LastActiveField').AsDateTime;
+      O.Description := MemDataset.FieldByName('DescriptionField').AsString;
+      O.Params.Text := MemDataset.FieldByName('ParamsField').AsString;
+      MemDataset.Next;
     end;
+  MemDataset.GotoBookmark(BM);
 end;
 
 procedure TPassManForm.PassmanToGrid;
@@ -187,24 +208,20 @@ var
   I: Integer;
   O: TPasswordManagerAccount;
 begin
-  StringGrid.RowCount := 1;
-  StringGrid.RowCount := PassMan.Count + 1;
+  MemDataset.Clear(False);
+  MemDataset.Active := True;
   for I := 0 to PassMan.Count - 1 do
     begin
       O := PassMan[I];
-      if O.Enabled then
-        StringGrid.Cells[0,I+1] := '1'
-      else
-        StringGrid.Cells[0,I+1] := '0';
-      StringGrid.Cells[1,I+1] := O.Username;
-      StringGrid.Cells[2,I+1] := O.Password;
-      if O.Admin then
-        StringGrid.Cells[3,I+1] := '1'
-      else
-        StringGrid.Cells[3,I+1] := '0';
-      StringGrid.Cells[4,I+1] := DateTimeToStr(O.LastActive);
-      StringGrid.Cells[5,I+1] := O.Description;
-      StringGrid.Cells[6,I+1] := O.Params.Text;
+      MemDataset.Insert;
+      MemDataset.FieldByName('EnabledField').AsBoolean     := O.Enabled;
+      MemDataset.FieldByName('UsernameField').AsString     := O.Username;
+      MemDataset.FieldByName('PasswordField').AsString     := O.Password;
+      MemDataset.FieldByName('AdminField').AsBoolean       := O.Admin;
+      MemDataset.FieldByName('LastActiveField').AsDateTime := O.LastActive;
+      MemDataset.FieldByName('DescriptionField').AsString  := O.Description;
+      MemDataset.FieldByName('ParamsField').AsString       := O.Params.Text;
+      MemDataset.Post;
     end;
 end;
 

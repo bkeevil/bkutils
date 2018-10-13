@@ -1,3 +1,6 @@
 lib
 backup
 *.bak
+*.pwd
+*.lfm.bak
+*.pas.bak

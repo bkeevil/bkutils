@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, passmanfm, PassManParamsFM
+  Forms, memdslaz, passmanfm, PassManParamsFM, createpasswordfm
   { you can add units after this };
 
 {$R *.res}
@@ -17,6 +17,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TPassManForm, PassManForm);
   Application.CreateForm(TParamsForm, ParamsForm);
+  Application.CreateForm(TCreatePasswordDialog, CreatePasswordDialog);
   Application.Run;
 end.
 
