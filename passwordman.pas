@@ -51,15 +51,12 @@ type
 
   TPasswordManager = class(TComponent)
     private
-      FActive: Boolean;
       FFilename: String;
       FPassphrase: String;
       FList: TList;
-      FHashAlgorithm: THashAlgorithm;
       FModified: Boolean;
       function GetCount: Integer;
       function GetItem(Index: Integer): TPasswordManagerAccount;
-      procedure SetActive(AValue: Boolean);
       procedure SetFilename(AValue: String);
       procedure _LoadFromStream(Stream: TStream);
       procedure _SaveToStream(Stream: TStream);
@@ -75,11 +72,12 @@ type
       procedure SaveToStream(Stream: TStream);
       procedure LoadFromFile(Filename: String);
       procedure SaveToFile(Filename: String);
+      procedure Load;
+      procedure Save;
       property Count: Integer read GetCount;
       property Items[Index: Integer]: TPasswordManagerAccount read GetItem; default;
       property Modified: Boolean read FModified write FModified;
     published
-      property Active: Boolean read FActive write SetActive;
       property Passphrase: String read FPassphrase write FPassphrase;
       property Filename: String read FFilename write SetFilename;
   end;
@@ -171,19 +169,6 @@ end;
 function TPasswordManager.GetItem(Index: Integer): TPasswordManagerAccount;
 begin
   Result := TPasswordManagerAccount(FList[Index]);
-end;
-
-procedure TPasswordManager.SetActive(AValue: Boolean);
-begin
-  if FActive=AValue then Exit;
-  FActive:=AValue;
-  if FActive and FileExists(Filename) then
-    LoadFromFile(Filename)
-  else
-    begin
-      Clear;
-      FModified := False;
-    end;
 end;
 
 procedure TPasswordManager.SetFilename(AValue: String);
@@ -297,6 +282,16 @@ begin
   finally
     S.Free;
   end;
+end;
+
+procedure TPasswordManager.Load;
+begin
+  LoadFromFile(Filename);
+end;
+
+procedure TPasswordManager.Save;
+begin
+  SaveToFile(Filename);
 end;
 
 { TPasswordManagerAccount }
