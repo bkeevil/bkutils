@@ -9,13 +9,14 @@ interface
 
 uses
   Base32, ErrorMsg, Logging, rbtree, Buffers, TempFiles, alarms, passwordman, 
-  streamutils, binarytree, btree, Crypto, DiffieHellman, Rand, 
+  streamutils, binarytree, btree, Crypto, DiffieHellman, Rand, bkutilsreg, 
   LazarusPackageIntf;
 
 implementation
 
 procedure Register;
 begin
+  RegisterUnit('bkutilsreg', @bkutilsreg.Register);
 end;
 
 initialization

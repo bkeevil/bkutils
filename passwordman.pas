@@ -5,7 +5,7 @@ unit passwordman;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Crypto;
 
 type
 
@@ -49,92 +49,54 @@ type
       property Params: TStrings read FParams write SetParams;
   end;
 
-  TPasswordManager = class(TPersistent)
+  TPasswordManager = class(TComponent)
     private
+      FActive: Boolean;
+      FFilename: String;
+      FPassphrase: String;
       FList: TList;
+      FHashAlgorithm: THashAlgorithm;
       FModified: Boolean;
-      function GetBase64: String;
       function GetCount: Integer;
       function GetItem(Index: Integer): TPasswordManagerAccount;
-      procedure SetBase64(AValue: String);
+      procedure SetActive(AValue: Boolean);
+      procedure SetFilename(AValue: String);
+      procedure _LoadFromStream(Stream: TStream);
+      procedure _SaveToStream(Stream: TStream);
     public
-      constructor Create;
+      constructor Create(AOwner: TComponent); override;
       destructor Destroy; override;
-      //
       procedure Clear;
       function Find(Username: String): TPasswordManagerAccount;
       function Remove(Username: String): Boolean;
       function Authenticate(Username,Password: String): Boolean;
-      //
+      function Hash(Password: String): String;
       procedure LoadFromStream(Stream: TStream);
       procedure SaveToStream(Stream: TStream);
       procedure LoadFromFile(Filename: String);
       procedure SaveToFile(Filename: String);
-      //
       property Count: Integer read GetCount;
       property Items[Index: Integer]: TPasswordManagerAccount read GetItem; default;
       property Modified: Boolean read FModified write FModified;
-      property AsBase64: String read GetBase64 write SetBase64;
+    published
+      property Active: Boolean read FActive write SetActive;
+      property Passphrase: String read FPassphrase write FPassphrase;
+      property Filename: String read FFilename write SetFilename;
   end;
 
 implementation
 
 uses
-  StreamUtils, Base64;
+  StreamUtils, DCPBase64;
+
+const
+  HASH_SALT = 'bgv[vNWn6"k^ChxZM$%G<f4.dE-f9y>s';
 
 { TPasswordManager }
 
-function TPasswordManager.GetCount: Integer;
+constructor TPasswordManager.Create(AOwner: TComponent);
 begin
-  Result := FList.Count;
-end;
-
-function TPasswordManager.GetItem(Index: Integer): TPasswordManagerAccount;
-begin
-  Result := TPasswordManagerAccount(FList[Index]);
-end;
-
-function TPasswordManager.GetBase64: String;
-var
-  M: TStringStream;
-  S: TBase64EncodingStream;
-begin
-  Result := '';
-  M := TStringStream.Create(Result);
-  try
-    S := TBase64EncodingStream.Create(M);
-    try
-      SaveToStream(S);
-      S.Flush;
-      Result := M.DataString;
-    finally
-      S.Free;
-    end;
-  finally
-    M.Free;
-  end;
-end;
-
-procedure TPasswordManager.SetBase64(AValue: String);
-var
-  M: TStringStream;
-  S: TBase64DecodingStream;
-begin
-  M := TStringStream.Create(AValue);
-  try
-    S := TBase64DecodingStream.Create(M);
-    try
-      LoadFromStream(S);
-    finally
-      S.Free;
-    end;
-  finally
-    M.Free;
-  end;
-end;
-
-constructor TPasswordManager.Create;
-begin
+  inherited Create(AOwner);
   FList := TList.Create;
 end;
 
@@ -192,30 +154,89 @@ begin
     Result := False;
 end;
 
-procedure TPasswordManager.LoadFromStream(Stream: TStream);
+function TPasswordManager.Hash(Password: String): String;
 var
-  I,C: Integer;
-  O: TPasswordManagerAccount;
+  Key: TBlock128;
 begin
-  if Assigned(Stream) then
+  SetLength(Result,((SizeOf(Password)+2) div 3) * 4);
+  Key := MD5String(Password);
+  Base64Encode(@Key,PChar(Result),SizeOf(Key));
+end;
+
+function TPasswordManager.GetCount: Integer;
+begin
+  Result := FList.Count;
+end;
+
+function TPasswordManager.GetItem(Index: Integer): TPasswordManagerAccount;
+begin
+  Result := TPasswordManagerAccount(FList[Index]);
+end;
+
+procedure TPasswordManager.SetActive(AValue: Boolean);
+begin
+  if FActive=AValue then Exit;
+  FActive:=AValue;
+  if FActive and FileExists(Filename) then
+    LoadFromFile(Filename)
+  else
     begin
       Clear;
-      if Stream.Position <> 0 then
-        Stream.Position := 0;
-      if Stream.Read(C,SizeOf(C)) = SizeOf(C) then
-        begin
-          FList.Capacity := C;
-          for I := 0 to C - 1 do
-            begin
-              O := TPasswordManagerAccount.Create(Self);
-              O.LoadFromStream(Stream);
-            end;
-        end;
       FModified := False;
     end;
 end;
 
-procedure TPasswordManager.SaveToStream(Stream: TStream);
+procedure TPasswordManager.SetFilename(AValue: String);
+begin
+  if FFilename=AValue then Exit;
+  FFilename:=AValue;
+  FModified := True;
+end;
+
+procedure TPasswordManager._LoadFromStream(Stream: TStream);
+var
+  I,C: Integer;
+  O: TPasswordManagerAccount;
+begin
+  if Stream.Position <> 0 then
+    Stream.Position := 0;
+  if Stream.Read(C,SizeOf(C)) = SizeOf(C) then
+    begin
+      FList.Capacity := C;
+      for I := 0 to C - 1 do
+        begin
+          O := TPasswordManagerAccount.Create(Self);
+          O.LoadFromStream(Stream);
+        end;
+    end;
+  FModified := False;
+end;
+
+procedure TPasswordManager.LoadFromStream(Stream: TStream);
+var
+  S: TStream;
+  P: TBlock128;
+begin
+  Assert(Assigned(Stream));
+  if Assigned(Stream) then
+    begin
+      if Passphrase > '' then
+        begin
+          P := MD5String(Passphrase+HASH_SALT);
+          S := TMemoryStream.Create;
+          try
+            DecryptStream(Stream,S,P);
+            _LoadFromStream(S);
+          finally
+            S.Free;
+          end;
+        end
+      else
+        _LoadFromStream(Stream);
+    end;
+end;
+
+procedure TPasswordManager._SaveToStream(Stream: TStream);
 var
   I: Integer;
 begin
@@ -227,6 +248,30 @@ begin
       for I := 0 to FList.Count - 1 do
         Items[I].SaveToStream(Stream);
       FModified := False;
+    end;
+end;
+
+procedure TPasswordManager.SaveToStream(Stream: TStream);
+var
+  P: TBlock128;
+  S: TStream;
+begin
+  Assert(Assigned(Stream));
+  if Assigned(Stream) then
+    begin
+      if Passphrase > '' then
+        begin
+          P := MD5String(Passphrase+HASH_SALT);
+          S := TMemoryStream.Create;
+          try
+            _SaveToStream(S);
+            EncryptStream(S,Stream,P);
+          finally
+            S.Free;
+          end;
+        end
+      else
+        _SaveToStream(Stream);
     end;
 end;
 
@@ -255,6 +300,23 @@ begin
 end;
 
 { TPasswordManagerAccount }
+
+constructor TPasswordManagerAccount.Create(AOwner: TPasswordManager);
+begin
+  inherited Create;
+  FOwner := AOwner;
+  if Assigned(FOwner) then
+    FOwner.FList.Add(Self);
+  FParams := TStringList.Create;
+end;
+
+destructor TPasswordManagerAccount.Destroy;
+begin
+  if Assigned(FOwner) then
+    FOwner.FList.Remove(Self);
+  FParams.Free;
+  inherited Destroy;
+end;
 
 procedure TPasswordManagerAccount.SetDescription(AValue: String);
 begin
@@ -339,23 +401,6 @@ procedure TPasswordManagerAccount.Modify;
 begin
   if Assigned(FOwner) then
     FOwner.FModified := True;
-end;
-
-constructor TPasswordManagerAccount.Create(AOwner: TPasswordManager);
-begin
-  inherited Create;
-  FOwner := AOwner;
-  if Assigned(FOwner) then
-    FOwner.FList.Add(Self);
-  FParams := TStringList.Create;
-end;
-
-destructor TPasswordManagerAccount.Destroy;
-begin
-  if Assigned(FOwner) then
-    FOwner.FList.Remove(Self);
-  FParams.Free;
-  inherited Destroy;
 end;
 
 end.

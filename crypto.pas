@@ -50,8 +50,10 @@ function GetCipherBlockSize(Kind: TCipherAlgorithm): Integer;
 function GetCipherClass(Kind: TCipherAlgorithm): TDCP_BlockCipherClass;
 function CreateCipher(Kind: TCipherAlgorithm; AOwner: TComponent = nil): TDCP_BlockCipher;
 function CreateHash(Kind: THashAlgorithm; AOwner: TComponent): TDCP_Hash;
-procedure EncryptStream(InStream, OutStream: TStream; Password: String);
-procedure DecryptStream(InStream, OutStream: TStream; Password: String);
+procedure EncryptStream(InStream, OutStream: TStream; Password: String); overload;
+procedure EncryptStream(InStream, OutStream: TStream; Key: TBlock128); overload;
+procedure DecryptStream(InStream, OutStream: TStream; Password: String); overload;
+procedure DecryptStream(InStream, OutStream: TStream; Key: TBlock128); overload;
 function EncryptString(const InString: String; Password: String): String;
 function DecryptString(const InString: String; Password: String): String;
 function MD5String(Str: String): TBlock128;
@@ -158,6 +160,21 @@ begin
   end;
 end;
 
+procedure EncryptStream(InStream, OutStream: TStream; Key: TBlock128);
+var
+  Cipher: TDCP_RC4;
+begin
+  InStream.Position := 0;
+  OutStream.Size := 0;
+  Cipher := TDCP_RC4.Create(nil);
+  try
+    Cipher.Init(Key,SizeOf(Key),nil);
+    Cipher.EncryptStream(InStream,OutStream,InStream.Size);
+  finally
+    Cipher.Free;
+  end;
+end;
+
 procedure DecryptStream(InStream, OutStream: TStream; Password: String);
 var
   Cipher: TDCP_RC4;
@@ -167,6 +184,21 @@ begin
   Cipher := TDCP_RC4.Create(nil);
   try
     Cipher.InitStr(Password,TDCP_SHA512);
+    Cipher.DecryptStream(InStream,OutStream,InStream.Size);
+  finally
+    Cipher.Free;
+  end;
+end;
+
+procedure DecryptStream(InStream, OutStream: TStream; Key: TBlock128);
+var
+  Cipher: TDCP_RC4;
+begin
+  InStream.Position := 0;
+  OutStream.Size := 0;
+  Cipher := TDCP_RC4.Create(nil);
+  try
+    Cipher.Init(Key,SizeOf(Key),nil);
     Cipher.DecryptStream(InStream,OutStream,InStream.Size);
   finally
     Cipher.Free;

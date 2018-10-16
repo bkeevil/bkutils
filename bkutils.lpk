@@ -13,7 +13,7 @@
       </CodeGeneration>
     </CompilerOptions>
     <Version Minor="1"/>
-    <Files Count="14">
+    <Files Count="15">
       <Item1>
         <Filename Value="base32.pas"/>
         <UnitName Value="Base32"/>
@@ -70,17 +70,25 @@
         <Filename Value="rand.pas"/>
         <UnitName Value="Rand"/>
       </Item14>
+      <Item15>
+        <Filename Value="bkutilsreg.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="bkutilsreg"/>
+      </Item15>
     </Files>
-    <RequiredPkgs Count="3">
+    <RequiredPkgs Count="4">
       <Item1>
-        <PackageName Value="LazUtils"/>
+        <PackageName Value="LCL"/>
       </Item1>
       <Item2>
-        <PackageName Value="dcpcrypt"/>
+        <PackageName Value="LazUtils"/>
       </Item2>
       <Item3>
-        <PackageName Value="FCL"/>
+        <PackageName Value="dcpcrypt"/>
       </Item3>
+      <Item4>
+        <PackageName Value="FCL"/>
+      </Item4>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>

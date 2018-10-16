@@ -49,11 +49,13 @@ type
   TLogFileListener = class(TLogListener)
     private
       FFile: Text;
+      FFilename: String;
     public
       procedure Message(Dispatcher: TLogDispatcher; MessageType: TLogMessageType; Message: String); override;
     public
-      constructor Create(Filename: String; Append: Boolean = True);
+      constructor Create(AFilename: String; Append: Boolean = True);
       destructor Destroy; override;
+      property Filename: String read FFilename;
   end;
 
   { TLogCRTListener }
@@ -268,11 +270,12 @@ end;
 
 { TLogFileListener }
 
-constructor TLogFileListener.Create(Filename: String; Append: Boolean);
+constructor TLogFileListener.Create(AFilename: String; Append: Boolean);
 begin
   inherited Create;
-  System.Assign(FFile,Filename);
-  if Append and FileExists(Filename) then
+  FFilename := AFilename;
+  System.Assign(FFile,AFilename);
+  if Append and FileExists(AFilename) then
     System.Append(FFile)
   else
     System.Rewrite(FFile);
