@@ -1,4 +1,4 @@
-unit whatsmyip;
+unit WhatsMyIP;
 
 {$mode objfpc}{$H+}
 
