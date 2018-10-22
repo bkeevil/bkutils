@@ -10,7 +10,7 @@ interface
 uses
   Base32, ErrorMsg, Logging, rbtree, Buffers, TempFiles, alarms, passwordman, 
   streamutils, binarytree, btree, Crypto, DiffieHellman, Rand, bkutilsreg, 
-  LazarusPackageIntf;
+  whatsmyip, LazarusPackageIntf;
 
 implementation
 

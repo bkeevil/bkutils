@@ -5,7 +5,8 @@ unit bkutilsreg;
 interface
 
 uses
-  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, PasswordMan;
+  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs,
+  WhatsMyIP, PasswordMan;
 
 procedure Register;
 
@@ -14,7 +15,8 @@ implementation
 procedure Register;
 begin
   {$I passwordman_icon.lrs}
-  RegisterComponents('Bond',[TPasswordManager]);
+  {$I whatsmyip_icon.lrs}
+  RegisterComponents('Bond',[TPasswordManager,TWhatsMyIP]);
 end;
 
 end.

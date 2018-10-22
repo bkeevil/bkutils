@@ -13,7 +13,7 @@
       </CodeGeneration>
     </CompilerOptions>
     <Version Minor="1"/>
-    <Files Count="15">
+    <Files Count="16">
       <Item1>
         <Filename Value="base32.pas"/>
         <UnitName Value="Base32"/>
@@ -75,20 +75,27 @@
         <HasRegisterProc Value="True"/>
         <UnitName Value="bkutilsreg"/>
       </Item15>
+      <Item16>
+        <Filename Value="whatsmyip.pas"/>
+        <UnitName Value="whatsmyip"/>
+      </Item16>
     </Files>
-    <RequiredPkgs Count="4">
+    <RequiredPkgs Count="5">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="laz_synapse"/>
       </Item1>
       <Item2>
-        <PackageName Value="LazUtils"/>
+        <PackageName Value="LCL"/>
       </Item2>
       <Item3>
-        <PackageName Value="dcpcrypt"/>
+        <PackageName Value="LazUtils"/>
       </Item3>
       <Item4>
-        <PackageName Value="FCL"/>
+        <PackageName Value="dcpcrypt"/>
       </Item4>
+      <Item5>
+        <PackageName Value="FCL"/>
+      </Item5>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>
