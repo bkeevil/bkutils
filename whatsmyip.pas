@@ -100,7 +100,7 @@ procedure TWhatsMyIP.SetIP(AValue: String);
 begin
   if CompareStr(AValue,FIP) <> 0 then
     begin
-      Log.Send(mtInfo,'Public IP Address Changed from "%s" to "%s"',[AValue,FIP]);
+      Log.Send(mtInfo,'Public IP Address Changed from "%s" to "%s"',[FIP,AValue]);
       FIP := AValue;
       if Assigned(FOnChange) then
         FOnChange(Self);
