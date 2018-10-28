@@ -191,12 +191,15 @@ begin
         begin
           if (A.Enabled) and (A.FNext <= FInterval) then
             begin
-              if Assigned(A.OnExecute) then
-                A.OnExecute;
-              if A.RunOnce then
-                A.Free
-              else
-                A.FNext := A.FNext + A.FInterval
+              try
+                if Assigned(A.OnExecute) then
+                  A.OnExecute;
+              finally
+                if A.RunOnce then
+                  A.Free
+                else
+                  A.FNext := A.FNext + A.FInterval
+              end;
             end;
         end;
     end;
@@ -222,10 +225,13 @@ begin
               if (not A.FExecuted) then
                 begin
                   A.FExecuted := True;
-                  if Assigned(A.OnExecute) then
-                    A.OnExecute;
-                  if A.RunOnce then
-                    A.Free;
+                  try
+                    if Assigned(A.OnExecute) then
+                      A.OnExecute;
+                  finally
+                    if A.RunOnce then
+                      A.Free;
+                  end;
                 end;
             end
           else

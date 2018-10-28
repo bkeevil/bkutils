@@ -10,7 +10,7 @@ uses
 { TWhatsMyIP }
 
 const
-  DEFAULT_IP_CHECK_INTERVAL = 30;
+  DEFAULT_IP_CHECK_INTERVAL = 60;
 
 type
   TProcessIPResponseEvent = procedure (Sender: TObject; var IP: String) of object;
@@ -21,7 +21,6 @@ type
       FInterval: Integer;
       FURL: String;
       FIP: String;
-      HTTP: THTTPSend;
       Alarm: TIntervalAlarm;
       Log: TLogDispatcher;
       FOnProcessResponse: TProcessIPResponseEvent;
@@ -53,7 +52,6 @@ begin
   inherited;
   Log := TLogDispatcher.Create('WhatsMyIP');
   FURL := 'http://api.ipify.org/';
-  HTTP := THTTPSend.Create;
   FEnabled := True;
   FInterval := DEFAULT_IP_CHECK_INTERVAL;
   TIntervalAlarm.Create(2,@Poll).RunOnce := True;
@@ -63,31 +61,42 @@ end;
 destructor TWhatsMyIP.Destroy;
 begin
   FreeAndNil(Alarm);
-  FreeAndNil(HTTP);
   FreeAndNil(Log);
   inherited Destroy;
 end;
 
 procedure TWhatsMyIP.Poll;
 var
-  I: Integer;
+  I,Size: Integer;
   C: Char;
   Str: String = '';
+  HTTP: THTTPSend;
 begin
   if not Enabled then Exit;
-  HTTP.Document.Clear;
-  if HTTP.HTTPMethod('GET',FURL) then
-    begin
-      for I := 1 to HTTP.Document.Size do
-        begin
-          HTTP.Document.Read(C,1);
-          Str := Str + C;
-        end;
-      ProcessIPResponse(Str);
-      IP := Str;
-    end
-  else
-    Log.Send(mtWarning,'Could not fetch Public IP from "%s"',[FURL]);
+
+  HTTP := THTTPSend.Create;
+  try
+    if HTTP.HTTPMethod('GET',FURL) then
+      begin
+        Size := HTTP.Document.Size;
+        if Size = 0 then
+          Log.Send(mtWarning,HTTP.ResultString)
+        else
+          begin
+            for I := 1 to Size do
+              begin
+                HTTP.Document.Read(C,1);
+                Str := Str + C;
+              end;
+            ProcessIPResponse(Str);
+            IP := Str;
+          end;
+      end
+    else
+      Log.Send(mtWarning,'Could not fetch Public IP from "%s"',[FURL]);
+  finally
+    HTTP.Destroy;
+  end;
 end;
 
 procedure TWhatsMyIP.ProcessIPResponse(var IP: String);
