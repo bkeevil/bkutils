@@ -71,7 +71,7 @@ end;
 procedure TWhatsMyIP.Poll;
 var
   I: Integer;
-  C: Char;
+  C: Char = #0;
   Str: String = '';
 begin
   if not Enabled then Exit;

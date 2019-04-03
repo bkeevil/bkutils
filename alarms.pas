@@ -5,7 +5,7 @@ unit alarms;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, FPTimer;
 
 type
   TAlarmEvent = procedure of object;
@@ -43,25 +43,16 @@ type
       destructor Destroy; override;
   end;
 
-  { TAlarmTimerThread }
-  TAlarmManager = class;
-
-  TAlarmTimerThread = class(TThread)
-    protected
-      FAlarmManager: TAlarmManager;
-      procedure Execute; override;
-  end;
-
   { TAlarmManager }
 
   TAlarmManager = class(TObject)
     private
       FIntervalAlarms: TList;
       FTimeAlarms: TList;
-      FTimer: TAlarmTimerThread;
+      FTimer: TFPTimer;
       FActive: Boolean;
       FMode: Byte;
-      FInterval: Cardinal;
+      FInterval: Int64;
       procedure CheckIntervalAlarms;
       procedure CheckTimeAlarms;
       procedure HandleTimer(Sender: TObject);
@@ -77,18 +68,6 @@ var
   AlarmManager: TAlarmManager;
 
 implementation
-
-{ TAlarmTimerThread }
-
-procedure TAlarmTimerThread.Execute;
-begin
-  repeat
-    Sleep(500);
-    Synchronize(Self,@FAlarmManager.CheckIntervalAlarms);
-    Sleep(500);
-    Synchronize(Self,@FAlarmManager.CheckTimeAlarms);
-  until Terminated;
-end;
 
 { TIntervalAlarm }
 
@@ -133,13 +112,10 @@ constructor TAlarmManager.Create;
 begin
   FIntervalAlarms := TList.Create;
   FTimeAlarms := TList.Create;
-  FTimer := TAlarmTimerThread.Create(False);
-  FTimer.FreeOnTerminate := True;
-  FTimer.FAlarmManager := Self;
-  //FTimer := TFPTimer.Create(nil);
-  //FTimer.Interval := 500;
-  //FTimer.OnTimer := @HandleTimer;
-  //FTimer.Enabled := True;
+  FTimer := TFPTimer.Create(nil);
+  FTimer.Interval := 500;
+  FTimer.OnTimer := @HandleTimer;
+  FTimer.Enabled := True;
   FMode := 0;
   FInterval := 0;
   FActive :=False;
@@ -149,9 +125,8 @@ destructor TAlarmManager.Destroy;
 begin
   Clear;
   FActive := False;
-  FTimer.Terminate;
-  //FTimer.Enabled := False;
-  //FTimer.Free;
+  FTimer.Enabled := False;
+  FTimer.Free;
   FIntervalAlarms.Free;
   FTimeAlarms.Free;
   inherited Destroy;
