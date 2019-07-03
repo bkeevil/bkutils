@@ -5,7 +5,7 @@ unit alarms;
 interface
 
 uses
-  Classes, SysUtils, FPTimer;
+  Classes, SysUtils, CustomTimer;
 
 type
   TAlarmEvent = procedure of object;
@@ -49,7 +49,7 @@ type
     private
       FIntervalAlarms: TList;
       FTimeAlarms: TList;
-      FTimer: TFPTimer;
+      FTimer: TCustomTimer;
       FActive: Boolean;
       FMode: Byte;
       FInterval: Int64;
@@ -112,7 +112,7 @@ constructor TAlarmManager.Create;
 begin
   FIntervalAlarms := TList.Create;
   FTimeAlarms := TList.Create;
-  FTimer := TFPTimer.Create(nil);
+  FTimer := TCustomTimer.Create(nil);
   FTimer.Interval := 500;
   FTimer.OnTimer := @HandleTimer;
   FTimer.Enabled := True;
